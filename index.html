@@ -6,40 +6,200 @@
     <title>Darke AV Smart Home Configurator</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Montserrat', sans-serif; background-color: #708090; color: #B0B0B0; margin: 0; padding: 0; }
-        .container { max-width: 1000px; margin: 20px auto; background: #8A9A9F; padding: 20px; border-radius: 8px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); }
-        header { text-align: center; background: #708090; color: #FFFFFF; padding: 20px; border-radius: 8px 8px 0 0; }
-        header img { max-width: 180px; }
-        h1 { margin: 10px 0; font-weight: 700; font-size: 2em; color: #FFFFFF; }
-        h2 { color: #FFFFFF; margin: 20px 0 10px; font-size: 1.2em; font-weight: 600; }
-        .section { margin-bottom: 20px; padding: 15px; background: #FFFFFF; border-radius: 5px; color: #333333; }
-        .room-section { border: 1px dashed #B0B0B0; padding: 10px; margin-bottom: 10px; position: relative; }
-        .room-section h3 { color: #708090; margin: 0 0 10px; font-size: 1.1em; }
-        .remove-room { position: absolute; top: 10px; right: 10px; color: #FF5555; cursor: pointer; font-size: 0.9em; }
-        label { display: block; margin: 8px 0 4px; font-weight: 600; font-size: 0.95em; }
-        input[type="checkbox"], input[type="radio"], select { margin-right: 8px; accent-color: #708090; }
-        input[type="text"], textarea { width: 100%; padding: 6px; margin-bottom: 8px; border: 1px solid #B0B0B0; border-radius: 3px; font-size: 0.9em; }
-        .suggestion { background: #E8F0FE; padding: 8px; margin-top: 8px; border-radius: 3px; font-style: italic; font-size: 0.85em; color: #708090; }
-        button { display: block; width: 100%; padding: 12px; background: #708090; color: #FFFFFF; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; font-weight: 600; margin-top: 20px; }
-        button:hover { background: #8A9A9F; }
-        .add-room-btn { width: auto; padding: 8px 16px; background: #B0B0B0; color: #708090; margin: 10px 0; }
-        .add-room-btn:hover { background: #D0D0D0; }
-        footer { text-align: center; margin-top: 20px; color: #B0B0B0; font-size: 0.85em; }
-        footer a { color: #FFFFFF; text-decoration: none; }
-        footer a:hover { text-decoration: underline; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #4A6572, #708090); /* Cooler gradient background */
+            color: #B0B0B0;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            background: rgba(138, 154, 159, 0.9); /* Semi-transparent background for depth */
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Enhanced shadow */
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        header {
+            text-align: center;
+            background: linear-gradient(90deg, #4A6572, #5A7A8A); /* Gradient header */
+            color: #FFFFFF;
+            padding: 20px;
+            border-radius: 15px 15px 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+        header img {
+            max-width: 200px; /* Slightly larger logo */
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3); /* Subtle glow effect */
+            transition: transform 0.3s ease;
+        }
+        header img:hover {
+            transform: scale(1.1); /* Zoom effect on hover */
+        }
+        h1 {
+            margin: 10px 0;
+            font-weight: 700;
+            font-size: 2.5em; /* Larger, cooler text */
+            color: #FFFFFF;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Text shadow for depth */
+        }
+        h2 {
+            color: #FFFFFF;
+            margin: 20px 0 10px;
+            font-size: 1.5em; /* Slightly larger headers */
+            font-weight: 600;
+            text-transform: uppercase; /* Uppercase for a modern look */
+            border-bottom: 2px solid #B0B0B0; /* Underline effect */
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #FFFFFF;
+            border-radius: 10px;
+            color: #333333;
+            transition: transform 0.3s ease;
+        }
+        .section:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+        }
+        .room-section {
+            border: 1px dashed #B0B0B0;
+            padding: 15px;
+            margin-bottom: 15px;
+            position: relative;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            transition: background 0.3s ease;
+        }
+        .room-section:hover {
+            background: rgba(255, 255, 255, 0.98); /* Subtle hover effect */
+        }
+        .room-section h3 {
+            color: #5A7A8A;
+            margin: 0 0 10px;
+            font-size: 1.2em;
+        }
+        .remove-room {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #FF5555;
+            cursor: pointer;
+            font-size: 1em;
+            transition: color 0.3s ease;
+        }
+        .remove-room:hover {
+            color: #FF0000; /* Redder on hover */
+        }
+        label {
+            display: block;
+            margin: 8px 0 4px;
+            font-weight: 600;
+            font-size: 1em;
+        }
+        input[type="checkbox"], input[type="radio"], select {
+            margin-right: 8px;
+            accent-color: #5A7A8A;
+            cursor: pointer;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 8px;
+            border: 1px solid #B0B0B0;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+        input[type="text"]:focus, textarea:focus {
+            border-color: #5A7A8A;
+            outline: none;
+        }
+        .suggestion {
+            background: #E8F0FE;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-style: italic;
+            font-size: 0.9em;
+            color: #5A7A8A;
+            display: none; /* Removed suggestion visibility */
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, #5A7A8A, #4A6572); /* Gradient button */
+            color: #FFFFFF;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: linear-gradient(90deg, #4A6572, #5A7A8A);
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
+        }
+        .add-room-btn {
+            width: auto;
+            padding: 8px 16px;
+            background: #B0B0B0;
+            color: #5A7A8A;
+            margin: 10px 0;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+        .add-room-btn:hover {
+            background: #D0D0D0;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #B0B0B0;
+            font-size: 0.9em;
+            padding: 10px;
+            background: rgba(74, 101, 114, 0.8);
+            border-radius: 0 0 15px 15px;
+        }
+        footer a {
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
     <div class="container">
-        <header><img src="darkeav_logo.png" alt="Darke AV Logo"><h1>Smart Home Configurator</h1><p>Bespoke Home Automation by Darke AV Limited</p><a href="https://www.darkeav.com" style="color: #FFFFFF;">www.darkeav.com</a></header>
+        <header>
+            <img src="https://yourusername.github.io/darke-av-configurator/darkeav_logo.png" alt="Darke AV Logo" onerror="this.src='https://via.placeholder.com/200?text=Darke+AV+Logo';"> <!-- Fallback placeholder -->
+            <h1>Smart Home Configurator</h1>
+            <p>Bespoke Home Automation by Darke AV Limited</p>
+            <a href="https://www.darkeav.com" style="color: #FFFFFF;">www.darkeav.com</a>
+        </header>
         <form id="configuratorForm">
             <div class="section"><h2>1. Client Information</h2><label>Full Name:</label><input type="text" id="name" required><label>Email:</label><input type="email" id="email" required><label>Phone Number:</label><input type="tel" id="phone"><label>Preferred Contact Method:</label><label><input type="radio" name="contact" value="Phone"> Phone</label><label><input type="radio" name="contact" value="Email"> Email</label><label><input type="radio" name="contact" value="Text"> Text</label></div>
-            <div class="section"><h2>2. Property Details</h2><label>Property Type:</label><label><input type="checkbox" name="propertyType" value="House"> House</label><label><input type="checkbox" name="propertyType" value="Apartment"> Apartment</label><label><input type="checkbox" name="propertyType" value="Bungalow"> Bungalow</label><label><input type="checkbox" name="propertyType" value="Other"> Other: <input type="text" name="propertyOtherText"></label><label>Square Metres (approx.):</label><input type="text" id="squareMetres"><label>Number of Floors:</label><input type="text" id="storeys"><label>Existing Smart Devices (e.g., Hive thermostat):</label><textarea id="existingDevices"></textarea><div class="suggestion">We can unify your existing devices with a Crestron Home system for seamless control across all rooms.</div></div>
-            <div class="section" id="roomsSection"><h2>3. Room/Area Preferences</h2><p>Add each room or area (e.g., Lounge, Garden) and select desired features.</p><button type="button" class="add-room-btn" onclick="addRoom()">Add Room/Area</button><div id="roomsContainer"></div><div class="suggestion">Consider unique specialty areas like a home cinema or poolside setup for tailored audio-visual solutions.</div></div>
-            <div class="section"><h2>4. Whole-Home Preferences</h2><label>Control System (applies to all rooms unless specified):</label><label><input type="checkbox" name="controlSystem" value="Crestron Custom"> Crestron Custom (Bespoke for large estates)</label><label><input type="radio" name="controlSystem" value="Crestron Home"> Crestron Home (User-friendly, customizable)</label><label><input type="radio" name="controlSystem" value="Control4"> Control4 (Intuitive, multi-room control)</label><label><input type="radio" name="controlSystem" value="Other"> Other: <input type="text" name="controlOtherText"></label><label><input type="radio" name="controlSystem" value="No Preference"> No Preference</label><label>Networking (whole-home):</label><label><input type="checkbox" name="networking" value="Whole-Home Wi-Fi"> Whole-Home Wi-Fi</label><label><input type="checkbox" name="networking" value="Secure Remote Office"> Secure Remote Office</label><label><input type="checkbox" name="networking" value="Structured Cabling"> Structured Cabling</label><label>Number of Devices (e.g., computers, tablets):</label><input type="text" id="deviceCount"><div class="suggestion">Structured cabling ensures robust connectivity for future technologies like 8K streaming or IoT devices.</div></div>
+            <div class="section"><h2>2. Property Details</h2><label>Property Type:</label><label><input type="checkbox" name="propertyType" value="House"> House</label><label><input type="checkbox" name="propertyType" value="Apartment"> Apartment</label><label><input type="checkbox" name="propertyType" value="Bungalow"> Bungalow</label><label><input type="checkbox" name="propertyType" value="Other"> Other: <input type="text" name="propertyOtherText"></label><label>Square Metres (approx.):</label><input type="text" id="squareMetres"><label>Number of Floors:</label><input type="text" id="storeys"><label>Existing Smart Devices (e.g., Hive thermostat):</label><textarea id="existingDevices"></textarea></div>
+            <div class="section" id="roomsSection"><h2>3. Room/Area Preferences</h2><p>Add each room or area (e.g., Lounge, Garden) and select desired features.</p><button type="button" class="add-room-btn" onclick="addRoom()">Add Room/Area</button><div id="roomsContainer"></div></div>
+            <div class="section"><h2>4. Whole-Home Preferences</h2><label>Control System (applies to all rooms unless specified):</label><label><input type="checkbox" name="controlSystem" value="Crestron Custom"> Crestron Custom (Bespoke for large estates)</label><label><input type="radio" name="controlSystem" value="Crestron Home"> Crestron Home (User-friendly, customizable)</label><label><input type="radio" name="controlSystem" value="Control4"> Control4 (Intuitive, multi-room control)</label><label><input type="radio" name="controlSystem" value="Other"> Other: <input type="text" name="controlOtherText"></label><label><input type="radio" name="controlSystem" value="No Preference"> No Preference</label><label>Networking (whole-home):</label><label><input type="checkbox" name="networking" value="Whole-Home Wi-Fi"> Whole-Home Wi-Fi</label><label><input type="checkbox" name="networking" value="Secure Remote Office"> Secure Remote Office</label><label><input type="checkbox" name="networking" value="Structured Cabling"> Structured Cabling</label><label>Number of Devices (e.g., computers, tablets):</label><input type="text" id="deviceCount"></div>
             <div class="section"><h2>5. Budget and Timeline</h2><label>Budget Range:</label><select id="budget" required><option value="">Select Budget</option><option value="£1,000–£10,000">£1,000–£10,000</option><option value="£10,000–£50,000">£10,000–£50,000</option><option value="£50,000–£100,000">£50,000–£100,000</option><option value="£100,000–£1,000,000">£100,000–£1,000,000</option><option value="To be discussed">To be discussed</option></select><label>Timeline:</label><select id="timeline" required><option value="">Select Timeline</option><option value="Immediate (within 1 month)">Immediate (within 1 month)</option><option value="1–3 months">1–3 months</option><option value="3–6 months">3–6 months</option><option value="Other">Other: <input type="text" id="timelineOtherText"></option></select></div>
-            <div class="section"><h2>6. Additional Preferences</h2><label>Aesthetic Preferences (e.g., hidden wiring, finishes):</label><textarea id="aesthetic"></textarea><label>Special Considerations (e.g., accessibility, pets):</label><textarea id="considerations"></textarea><label>Additional Notes or Questions:</label><textarea id="notes"></textarea><div class="suggestion">Accessibility features like voice control or custom keypads can enhance usability for all household members.</div></div>
+            <div class="section"><h2>6. Additional Preferences</h2><label>Aesthetic Preferences (e.g., hidden wiring, finishes):</label><textarea id="aesthetic"></textarea><label>Special Considerations (e.g., accessibility, pets):</label><textarea id="considerations"></textarea><label>Additional Notes or Questions:</label><textarea id="notes"></textarea></div>
             <button type="submit">Submit Your Configuration</button>
             <button type="button" id="downloadPdf">Download Fillable PDF</button>
             <button type="button" id="emailPdf">Email Configuration</button>
@@ -472,7 +632,6 @@
                 <label><input type="checkbox" name="security-${roomCount}" value="Smart Doorbell"> Smart Doorbell</label>
                 <label><input type="checkbox" name="security-${roomCount}" value="Panic Button"> Panic Button</label>
                 <label>Room Notes:</label><textarea name="roomNotes-${roomCount}"></textarea>
-                <div class="suggestion">For this room, consider Crestron NAX audio for high-fidelity sound or a smart mirror for a gym setup.</div>
             `;
             roomsContainer.appendChild(roomDiv);
 
