@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #000000, #708090); /* Cooler gradient background */
+            background: linear-gradient(135deg, #4A6572, #708090);
             color: #B0B0B0;
             margin: 0;
             padding: 0;
@@ -17,10 +17,10 @@
         .container {
             max-width: 1000px;
             margin: 20px auto;
-            background: rgba(138, 154, 159, 0.9); /* Semi-transparent background for depth */
+            background: rgba(138, 154, 159, 0.9);
             padding: 25px;
-            border-radius: 05px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Enhanced shadow */
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             animation: fadeIn 1s ease-in;
         }
         @keyframes fadeIn {
@@ -29,7 +29,7 @@
         }
         header {
             text-align: center;
-            background: linear-gradient(90deg, #4A6572, #5A7A8A); /* Gradient header */
+            background: linear-gradient(90deg, #4A6572, #5A7A8A);
             color: #FFFFFF;
             padding: 20px;
             border-radius: 15px 15px 0 0;
@@ -37,26 +37,28 @@
             overflow: hidden;
         }
         header img {
-            max-width: 200px; /* Slightly larger logo */
-            border-radius: 00px;
-            box-shadow: 0 0px 00px rgba(255, 255, 255, 0.3); /* Subtle glow effect */
+            max-width: 200px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
             transition: transform 0.3s ease;
-        
+        }
+        header img:hover {
+            transform: scale(1.1);
         }
         h1 {
             margin: 10px 0;
             font-weight: 700;
-            font-size: 2.5em; /* Larger, cooler text */
+            font-size: 2.5em;
             color: #FFFFFF;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Text shadow for depth */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
         h2 {
             color: #FFFFFF;
             margin: 20px 0 10px;
-            font-size: 1.5em; /* Slightly larger headers */
+            font-size: 1.5em;
             font-weight: 600;
-            text-transform: uppercase; /* Uppercase for a modern look */
-            border-bottom: 2px solid #B0B0B0; /* Underline effect */
+            text-transform: uppercase;
+            border-bottom: 2px solid #B0B0B0;
         }
         .section {
             margin-bottom: 20px;
@@ -67,7 +69,7 @@
             transition: transform 0.3s ease;
         }
         .section:hover {
-            transform: translateY(-5px); /* Lift effect on hover */
+            transform: translateY(-5px);
         }
         .room-section {
             border: 1px dashed #B0B0B0;
@@ -79,7 +81,7 @@
             transition: background 0.3s ease;
         }
         .room-section:hover {
-            background: rgba(255, 255, 255, 0.98); /* Subtle hover effect */
+            background: rgba(255, 255, 255, 0.98);
         }
         .room-section h3 {
             color: #5A7A8A;
@@ -96,7 +98,7 @@
             transition: color 0.3s ease;
         }
         .remove-room:hover {
-            color: #FF0000; /* Redder on hover */
+            color: #FF0000;
         }
         label {
             display: block;
@@ -122,21 +124,11 @@
             border-color: #5A7A8A;
             outline: none;
         }
-        .suggestion {
-            background: #E8F0FE;
-            padding: 10px;
-            margin-top: 10px;
-            border-radius: 5px;
-            font-style: italic;
-            font-size: 0.9em;
-            color: #5A7A8A;
-            display: none; /* Removed suggestion visibility */
-        }
         button {
             display: block;
             width: 100%;
             padding: 12px;
-            background: linear-gradient(90deg, #5A7A8A, #4A6572); /* Gradient button */
+            background: linear-gradient(90deg, #5A7A8A, #B8520A);
             color: #FFFFFF;
             border: none;
             border-radius: 10px;
@@ -148,7 +140,7 @@
             transition: all 0.3s ease;
         }
         button:hover {
-            background: linear-gradient(90deg, #4A6572, #5A7A8A);
+            background: linear-gradient(90deg, #B8520A, #5A7A8A);
             transform: translateY(-2px);
             box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
         }
@@ -186,7 +178,7 @@
 <body>
     <div class="container">
         <header>
-            <img src="https://hornett87.github.io/darke-av-configurator/darkeav_logo.png" alt="Darke AV Logo" onerror="this.src='https://via.placeholder.com/200?text=Darke+AV+Logo';"> <!-- Fallback placeholder -->
+            <img src="https://yourusername.github.io/darke-av-configurator/darkeav_logo.png" alt="Darke AV Logo" onerror="this.src='https://via.placeholder.com/200?text=Darke+AV+Logo';">
             <h1>Smart Home Configurator</h1>
             <p>Bespoke Home Automation by Darke AV Limited</p>
             <a href="https://www.darkeav.com" style="color: #FFFFFF;">www.darkeav.com</a>
@@ -232,14 +224,13 @@
                         <div><label>Acoustic Treatment:</label>
                             <label><input type="checkbox" name="specialtyAcoustic-${roomCount}" value="Essential Panels"> Essential Panels</label>
                             <label><input type="checkbox" name="specialtyAcoustic-${roomCount}" value="Full Wall Treatment"> Full Wall Treatment</label>
-                            <label><input type="checkbox" name="specialtyAcoustic-${roomCount}" value="Corner Bass Traps"> Corner Bass Traps</label>
                             <label><input type="checkbox" name="specialtyAcoustic-${roomCount}" value="Diffusion Panels"> Diffusion Panels</label>
                             <label><input type="checkbox" name="specialtyAcoustic-${roomCount}" value="Basic Soundproofing – door seals and carpet underlay"> Basic Soundproofing – door seals and carpet underlay</label>
                             <label><input type="checkbox" name="specialtyAcoustic-${roomCount}" value="Advanced Isolation – upgraded isolation for walls, floor, and door"> Advanced Isolation – upgraded isolation for walls, floor, and door</label>
                         </div>
                         <div><label>Audio:</label>
                             <label><input type="checkbox" name="specialtyAudio-${roomCount}" value="Multi-Room Audio"> Multi-Room Audio</label>
-                            <label><input type="checkbox" name="specialtyAudio-${roomCount}" value="Surround Sound"> Surround Sound</label>
+                            <label><input type="checkbox" name="specialtyAudio-${roomCount}" value="Standalone"> Standalone</label>
                         </div>
                         <div><label>Speakers:</label>
                             <label><input type="checkbox" name="specialtySpeaker-${roomCount}" value="In-wall"> In-wall</label>
@@ -259,20 +250,20 @@
                             <label><input type="checkbox" name="specialtyAudioSource-${roomCount}" value="Streaming (e.g., Spotify, Apple Music etc.)"> Streaming (e.g., Spotify, Apple Music etc.)</label>
                             <label><input type="checkbox" name="specialtyAudioSource-${roomCount}" value="Local input"> Local input</label>
                         </div>
-                        <div><label>Display Type:</label>
-                            <label><input type="checkbox" name="specialtyDisplayType-${roomCount}" value="Wall-mounted TV"> Wall-mounted TV</label>
-                            <label><input type="checkbox" name="specialtyDisplayType-${roomCount}" value="Free Standing TV"> Free Standing TV</label>
-                            <label><input type="checkbox" name="specialtyDisplayType-${roomCount}" value="Projector"> Projector</label>
-                            <label><input type="checkbox" name="specialtyDisplayType-${roomCount}" value="Hidden Screen"> Hidden Screen</label>
-                            <label><input type="checkbox" name="specialtyDisplayType-${roomCount}" value="Automated Screen Lift"> Automated Screen Lift</label>
-                            <label><input type="checkbox" name="specialtyDisplayType-${roomCount}" value="Motorised Mount"> Motorised Mount</label>
-                            <label><input type="checkbox" name="specialtyDisplayType-${roomCount}" value="Modula LED Display"> Modula LED Display</label>
+                        <div><label>TV Type:</label>
+                            <label><input type="checkbox" name="specialtyTVType-${roomCount}" value="Wall-mounted TV"> Wall-mounted TV</label>
+                            <label><input type="checkbox" name="specialtyTVType-${roomCount}" value="Free Standing TV"> Free Standing TV</label>
+                            <label><input type="checkbox" name="specialtyTVType-${roomCount}" value="Projector"> Projector</label>
+                            <label><input type="checkbox" name="specialtyTVType-${roomCount}" value="Hidden Screen"> Hidden Screen</label>
+                            <label><input type="checkbox" name="specialtyTVType-${roomCount}" value="Automated Screen Lift"> Automated Screen Lift</label>
+                            <label><input type="checkbox" name="specialtyTVType-${roomCount}" value="Motorised Mount"> Motorised Mount</label>
+                            <label><input type="checkbox" name="specialtyTVType-${roomCount}" value="Modula LED Display"> Modula LED Display</label>
                         </div>
-                        <div><label>Display Size:</label>
-                            <label><input type="checkbox" name="specialtyDisplaySize-${roomCount}" value="55-65 inches"> 55-65 inches</label>
-                            <label><input type="checkbox" name="specialtyDisplaySize-${roomCount}" value="65-85 inches"> 65-85 inches</label>
-                            <label><input type="checkbox" name="specialtyDisplaySize-${roomCount}" value="85-100 inches"> 85-100 inches</label>
-                            <label><input type="checkbox" name="specialtyDisplaySize-${roomCount}" value="100+ inches"> 100+ inches</label>
+                        <div><label>TV Size:</label>
+                            <label><input type="checkbox" name="specialtyTVSize-${roomCount}" value="85-100 inches"> 85-100 inches</label>
+                            <label><input type="checkbox" name="specialtyTVSize-${roomCount}" value="100-150 inches"> 100-150 inches</label>
+                            <label><input type="checkbox" name="specialtyTVSize-${roomCount}" value="150-200 inches"> 150-200 inches</label>
+                            <label><input type="checkbox" name="specialtyTVSize-${roomCount}" value="200+ inches"> 200+ inches</label>
                         </div>
                         <div><label>Video Sources:</label>
                             <label><input type="checkbox" name="specialtyVideoSource-${roomCount}" value="Streaming (e.g., Netflix, Amazon Prime)"> Streaming (e.g., Netflix, Amazon Prime)</label>
@@ -306,6 +297,18 @@
                             <label><input type="checkbox" name="specialtySeating-${roomCount}" value="Chaise End Seats (extended footrest section for lounging)"> Chaise End Seats (extended footrest section for lounging)</label>
                             <label><input type="checkbox" name="specialtySeating-${roomCount}" value="Bean Bags / Soft Loungers (relaxed, casual seating option)"> Bean Bags / Soft Loungers (relaxed, casual seating option)</label>
                         </div>
+                        <div><label>Special Touches:</label>
+                            <label><input type="checkbox" name="specialtySpecial-${roomCount}" value="Backlit Wall Panels"> Backlit Wall Panels</label>
+                            <label><input type="checkbox" name="specialtySpecial-${roomCount}" value="Star Ceiling"> Star Ceiling</label>
+                            <label><input type="checkbox" name="specialtySpecial-${roomCount}" value="Live Movie Poster"> Live Movie Poster</label>
+                            <label><input type="checkbox" name="specialtySpecial-${roomCount}" value="Movie Sync Whole Room Lighting"> Movie Sync Whole Room Lighting</label>
+                            <label><input type="checkbox" name="specialtySpecial-${roomCount}" value="Motion Seating"> Motion Seating</label>
+                        </div>
+                        <div><label>Data/Phone:</label>
+                            <label><input type="checkbox" name="specialtyData-${roomCount}" value="Dec Phone Systems"> Dec Phone Systems</label>
+                            <label><input type="checkbox" name="specialtyData-${roomCount}" value="BT Phone Point"> BT Phone Point</label>
+                            <label><input type="checkbox" name="specialtyData-${roomCount}" value="Data Point"> Data Point</label>
+                        </div>
                     </div>
                     <div class="specialty-option" data-for="Pool">
                         <div><label>Audio:</label>
@@ -316,7 +319,7 @@
                             <label><input type="checkbox" name="specialtySpeaker-${roomCount}" value="In-wall"> In-wall</label>
                             <label><input type="checkbox" name="specialtySpeaker-${roomCount}" value="In-Ceiling"> In-Ceiling</label>
                             <label><input type="checkbox" name="specialtySpeaker-${roomCount}" value="Wall-Mount"> Wall-Mount</label>
-                            <label><input type="checkbox" name="specialtySpeaker-${roomCount}" value="Pendent"> Pendent</label>
+                            <label><input type="checkbox" name="specialtySpeaker-${roomCount}" value="Pendant"> Pendant</label>
                             <label><input type="checkbox" name="specialtySpeaker-${roomCount}" value="Under Water"> Under Water</label>
                             <label><input type="checkbox" name="specialtySpeaker-${roomCount}" value="Portable"> Portable</label>
                         </div>
@@ -330,22 +333,21 @@
                             <label><input type="checkbox" name="specialtyAudioSource-${roomCount}" value="Streaming (e.g., Spotify, Apple Music etc.)"> Streaming (e.g., Spotify, Apple Music etc.)</label>
                             <label><input type="checkbox" name="specialtyAudioSource-${roomCount}" value="Local input"> Local input</label>
                         </div>
-                        <div><label>Display Type:</label>
-                            <label><input type="checkbox" name="specialtyDisplayType-${roomCount}" value="Wall-mounted TV"> Wall-mounted TV</label>
-                            <label><input type="checkbox" name="specialtyDisplayType-${roomCount}" value="Projector"> Projector</label>
-                            <label><input type="checkbox" name="specialtyDisplayType-${roomCount}" value="Ceiling Mounted"> Ceiling Mounted</label>
-                            <label><input type="checkbox" name="specialtyDisplayType-${roomCount}" value="Hidden Screen"> Hidden Screen</label>
-                            <label><input type="checkbox" name="specialtyDisplayType-${roomCount}" value="Automated Screen Lift"> Automated Screen Lift</label>
-                            <label><input type="checkbox" name="specialtyDisplayType-${roomCount}" value="Motorised Mount"> Motorised Mount</label>
-                            <label><input type="checkbox" name="specialtyDisplayType-${roomCount}" value="Mirror TV"> Mirror TV</label>
+                        <div><label>TV Type:</label>
+                            <label><input type="checkbox" name="specialtyTVType-${roomCount}" value="Projector"> Projector</label>
+                            <label><input type="checkbox" name="specialtyTVType-${roomCount}" value="Ceiling Mounted"> Ceiling Mounted</label>
+                            <label><input type="checkbox" name="specialtyTVType-${roomCount}" value="Hidden Screen"> Hidden Screen</label>
+                            <label><input type="checkbox" name="specialtyTVType-${roomCount}" value="Automated Screen Lift"> Automated Screen Lift</label>
+                            <label><input type="checkbox" name="specialtyTVType-${roomCount}" value="Motorised Mount"> Motorised Mount</label>
+                            <label><input type="checkbox" name="specialtyTVType-${roomCount}" value="Mirror TV"> Mirror TV</label>
                         </div>
-                        <div><label>Display Size:</label>
-                            <label><input type="checkbox" name="specialtyDisplaySize-${roomCount}" value="32-43 inches"> 32-43 inches</label>
-                            <label><input type="checkbox" name="specialtyDisplaySize-${roomCount}" value="43-55 inches"> 43-55 inches</label>
-                            <label><input type="checkbox" name="specialtyDisplaySize-${roomCount}" value="55-65 inches"> 55-65 inches</label>
-                            <label><input type="checkbox" name="specialtyDisplaySize-${roomCount}" value="65-85 inches"> 65-85 inches</label>
-                            <label><input type="checkbox" name="specialtyDisplaySize-${roomCount}" value="85-100 inches"> 85-100 inches</label>
-                            <label><input type="checkbox" name="specialtyDisplaySize-${roomCount}" value="100+ inches"> 100+ inches</label>
+                        <div><label>TV Size:</label>
+                            <label><input type="checkbox" name="specialtyTVSize-${roomCount}" value="32-43 inches"> 32-43 inches</label>
+                            <label><input type="checkbox" name="specialtyTVSize-${roomCount}" value="43-55 inches"> 43-55 inches</label>
+                            <label><input type="checkbox" name="specialtyTVSize-${roomCount}" value="55-65 inches"> 55-65 inches</label>
+                            <label><input type="checkbox" name="specialtyTVSize-${roomCount}" value="65-85 inches"> 65-85 inches</label>
+                            <label><input type="checkbox" name="specialtyTVSize-${roomCount}" value="85-100 inches"> 85-100 inches</label>
+                            <label><input type="checkbox" name="specialtyTVSize-${roomCount}" value="100+ inches"> 100+ inches</label>
                         </div>
                         <div><label>Video Sources:</label>
                             <label><input type="checkbox" name="specialtyVideoSource-${roomCount}" value="Sky Q"> Sky Q</label>
@@ -376,6 +378,11 @@
                             <label><input type="checkbox" name="specialtyControl-${roomCount}" value="Touch Screen On-Wall"> Touch Screen On-Wall</label>
                             <label><input type="checkbox" name="specialtyControl-${roomCount}" value="Waterproof Remote"> Waterproof Remote</label>
                         </div>
+                        <div><label>Data/Phone:</label>
+                            <label><input type="checkbox" name="specialtyData-${roomCount}" value="Dec Phone Systems"> Dec Phone Systems</label>
+                            <label><input type="checkbox" name="specialtyData-${roomCount}" value="BT Phone Point"> BT Phone Point</label>
+                            <label><input type="checkbox" name="specialtyData-${roomCount}" value="Data Point"> Data Point</label>
+                        </div>
                     </div>
                     <div class="specialty-option" data-for="Gym">
                         <div><label>Audio:</label>
@@ -386,7 +393,7 @@
                             <label><input type="checkbox" name="specialtySpeaker-${roomCount}" value="In-wall"> In-wall</label>
                             <label><input type="checkbox" name="specialtySpeaker-${roomCount}" value="In-Ceiling"> In-Ceiling</label>
                             <label><input type="checkbox" name="specialtySpeaker-${roomCount}" value="Wall-Mount"> Wall-Mount</label>
-                            <label><input type="checkbox" name="specialtySpeaker-${roomCount}" value="Pendent"> Pendent</label>
+                            <label><input type="checkbox" name="specialtySpeaker-${roomCount}" value="Pendant"> Pendant</label>
                             <label><input type="checkbox" name="specialtySpeaker-${roomCount}" value="Plaster In"> Plaster In</label>
                         </div>
                         <div><label>Speaker Finish:</label>
@@ -399,22 +406,22 @@
                             <label><input type="checkbox" name="specialtyAudioSource-${roomCount}" value="Streaming (e.g., Spotify, Apple Music etc.)"> Streaming (e.g., Spotify, Apple Music etc.)</label>
                             <label><input type="checkbox" name="specialtyAudioSource-${roomCount}" value="Local input"> Local input</label>
                         </div>
-                        <div><label>Display Type:</label>
-                            <label><input type="checkbox" name="specialtyDisplayType-${roomCount}" value="Wall-mounted TV"> Wall-mounted TV</label>
-                            <label><input type="checkbox" name="specialtyDisplayType-${roomCount}" value="Projector"> Projector</label>
-                            <label><input type="checkbox" name="specialtyDisplayType-${roomCount}" value="Ceiling Mounted"> Ceiling Mounted</label>
-                            <label><input type="checkbox" name="specialtyDisplayType-${roomCount}" value="Hidden Screen"> Hidden Screen</label>
-                            <label><input type="checkbox" name="specialtyDisplayType-${roomCount}" value="Automated Screen Lift"> Automated Screen Lift</label>
-                            <label><input type="checkbox" name="specialtyDisplayType-${roomCount}" value="Motorised Mount"> Motorised Mount</label>
-                            <label><input type="checkbox" name="specialtyDisplayType-${roomCount}" value="Mirror TV"> Mirror TV</label>
+                        <div><label>TV Type:</label>
+                            <label><input type="checkbox" name="specialtyTVType-${roomCount}" value="Wall-mounted TV"> Wall-mounted TV</label>
+                            <label><input type="checkbox" name="specialtyTVType-${roomCount}" value="Projector"> Projector</label>
+                            <label><input type="checkbox" name="specialtyTVType-${roomCount}" value="Ceiling Mounted"> Ceiling Mounted</label>
+                            <label><input type="checkbox" name="specialtyTVType-${roomCount}" value="Hidden Screen"> Hidden Screen</label>
+                            <label><input type="checkbox" name="specialtyTVType-${roomCount}" value="Automated Screen Lift"> Automated Screen Lift</label>
+                            <label><input type="checkbox" name="specialtyTVType-${roomCount}" value="Motorised Mount"> Motorised Mount</label>
+                            <label><input type="checkbox" name="specialtyTVType-${roomCount}" value="Mirror TV"> Mirror TV</label>
                         </div>
-                        <div><label>Display Size:</label>
-                            <label><input type="checkbox" name="specialtyDisplaySize-${roomCount}" value="32-43 inches"> 32-43 inches</label>
-                            <label><input type="checkbox" name="specialtyDisplaySize-${roomCount}" value="43-55 inches"> 43-55 inches</label>
-                            <label><input type="checkbox" name="specialtyDisplaySize-${roomCount}" value="55-65 inches"> 55-65 inches</label>
-                            <label><input type="checkbox" name="specialtyDisplaySize-${roomCount}" value="65-85 inches"> 65-85 inches</label>
-                            <label><input type="checkbox" name="specialtyDisplaySize-${roomCount}" value="85-100 inches"> 85-100 inches</label>
-                            <label><input type="checkbox" name="specialtyDisplaySize-${roomCount}" value="100+ inches"> 100+ inches</label>
+                        <div><label>TV Size:</label>
+                            <label><input type="checkbox" name="specialtyTVSize-${roomCount}" value="32-43 inches"> 32-43 inches</label>
+                            <label><input type="checkbox" name="specialtyTVSize-${roomCount}" value="43-55 inches"> 43-55 inches</label>
+                            <label><input type="checkbox" name="specialtyTVSize-${roomCount}" value="55-65 inches"> 55-65 inches</label>
+                            <label><input type="checkbox" name="specialtyTVSize-${roomCount}" value="65-85 inches"> 65-85 inches</label>
+                            <label><input type="checkbox" name="specialtyTVSize-${roomCount}" value="85-100 inches"> 85-100 inches</label>
+                            <label><input type="checkbox" name="specialtyTVSize-${roomCount}" value="100+ inches"> 100+ inches</label>
                         </div>
                         <div><label>Video Sources:</label>
                             <label><input type="checkbox" name="specialtyVideoSource-${roomCount}" value="Sky"> Sky</label>
@@ -438,6 +445,11 @@
                             <label><input type="checkbox" name="specialtyControl-${roomCount}" value="Handheld Remote"> Handheld Remote</label>
                             <label><input type="checkbox" name="specialtyControl-${roomCount}" value="Touch Screen Tabletop"> Touch Screen Tabletop</label>
                             <label><input type="checkbox" name="specialtyControl-${roomCount}" value="Touch Screen On-Wall"> Touch Screen On-Wall</label>
+                        </div>
+                        <div><label>Data/Phone:</label>
+                            <label><input type="checkbox" name="specialtyData-${roomCount}" value="Dec Phone Systems"> Dec Phone Systems</label>
+                            <label><input type="checkbox" name="specialtyData-${roomCount}" value="BT Phone Point"> BT Phone Point</label>
+                            <label><input type="checkbox" name="specialtyData-${roomCount}" value="Data Point"> Data Point</label>
                         </div>
                     </div>
                     <div class="specialty-option" data-for="External Area">
@@ -464,19 +476,19 @@
                             <label><input type="checkbox" name="specialtyAudioSource-${roomCount}" value="Turn Table"> Turn Table</label>
                             <label><input type="checkbox" name="specialtyAudioSource-${roomCount}" value="Local input"> Local input</label>
                         </div>
-                        <div><label>Display Type:</label>
-                            <label><input type="checkbox" name="specialtyDisplayType-${roomCount}" value="Wall-mounted TV"> Wall-mounted TV</label>
-                            <label><input type="checkbox" name="specialtyDisplayType-${roomCount}" value="Projector"> Projector</label>
-                            <label><input type="checkbox" name="specialtyDisplayType-${roomCount}" value="Hidden Screen"> Hidden Screen</label>
-                            <label><input type="checkbox" name="specialtyDisplayType-${roomCount}" value="Automated Screen Lift"> Automated Screen Lift</label>
+                        <div><label>TV Type:</label>
+                            <label><input type="checkbox" name="specialtyTVType-${roomCount}" value="Wall-mounted TV"> Wall-mounted TV</label>
+                            <label><input type="checkbox" name="specialtyTVType-${roomCount}" value="Projector"> Projector</label>
+                            <label><input type="checkbox" name="specialtyTVType-${roomCount}" value="Hidden Screen"> Hidden Screen</label>
+                            <label><input type="checkbox" name="specialtyTVType-${roomCount}" value="Automated Screen Lift"> Automated Screen Lift</label>
                         </div>
-                        <div><label>Display Size:</label>
-                            <label><input type="checkbox" name="specialtyDisplaySize-${roomCount}" value="32-43 inches"> 32-43 inches</label>
-                            <label><input type="checkbox" name="specialtyDisplaySize-${roomCount}" value="43-55 inches"> 43-55 inches</label>
-                            <label><input type="checkbox" name="specialtyDisplaySize-${roomCount}" value="55-65 inches"> 55-65 inches</label>
-                            <label><input type="checkbox" name="specialtyDisplaySize-${roomCount}" value="65-85 inches"> 65-85 inches</label>
-                            <label><input type="checkbox" name="specialtyDisplaySize-${roomCount}" value="85-100 inches"> 85-100 inches</label>
-                            <label><input type="checkbox" name="specialtyDisplaySize-${roomCount}" value="100+ inches"> 100+ inches</label>
+                        <div><label>TV Size:</label>
+                            <label><input type="checkbox" name="specialtyTVSize-${roomCount}" value="32-43 inches"> 32-43 inches</label>
+                            <label><input type="checkbox" name="specialtyTVSize-${roomCount}" value="43-55 inches"> 43-55 inches</label>
+                            <label><input type="checkbox" name="specialtyTVSize-${roomCount}" value="55-65 inches"> 55-65 inches</label>
+                            <label><input type="checkbox" name="specialtyTVSize-${roomCount}" value="65-85 inches"> 65-85 inches</label>
+                            <label><input type="checkbox" name="specialtyTVSize-${roomCount}" value="85-100 inches"> 85-100 inches</label>
+                            <label><input type="checkbox" name="specialtyTVSize-${roomCount}" value="100+ inches"> 100+ inches</label>
                         </div>
                         <div><label>Video Sources:</label>
                             <label><input type="checkbox" name="specialtyVideoSource-${roomCount}" value="Sky"> Sky</label>
@@ -490,7 +502,7 @@
                         <div><label>Lighting & Climate:</label>
                             <label><input type="checkbox" name="specialtyLighting-${roomCount}" value="Lighting Control"> Lighting Control</label>
                             <label><input type="checkbox" name="specialtyLighting-${roomCount}" value="Motorized Blinds"> Motorized Blinds</label>
-                            <label><input type="checkbox" name="specialtyLighting-${roomCount}" value="Climate Control"> Climate Control</label>
+                            <label><input type="checkbox" name="specialtyLighting-${roomCount}" value="Heater Control"> Heater Control</label>
                             <label><input type="checkbox" name="specialtyLighting-${roomCount}" value="Renewable Energy"> Renewable Energy</label>
                             <label><input type="checkbox" name="specialtyLighting-${roomCount}" value="Smart Radiators"> Smart Radiators</label>
                             <label><input type="checkbox" name="specialtyLighting-${roomCount}" value="Automated Window Tinting"> Automated Window Tinting</label>
@@ -520,7 +532,7 @@
                             <label><input type="checkbox" name="specialtySpeaker-${roomCount}" value="In-wall"> In-wall</label>
                             <label><input type="checkbox" name="specialtySpeaker-${roomCount}" value="In-ceiling"> In-ceiling</label>
                             <label><input type="checkbox" name="specialtySpeaker-${roomCount}" value="Wall-Mount"> Wall-Mount</label>
-                            <label><input type="checkbox" name="specialtySpeaker-${roomCount}" value="Pendent"> Pendent</label>
+                            <label><input type="checkbox" name="specialtySpeaker-${roomCount}" value="Pendant"> Pendant</label>
                             <label><input type="checkbox" name="specialtySpeaker-${roomCount}" value="Plaster In"> Plaster In</label>
                         </div>
                         <div><label>Speaker Finish:</label>
@@ -533,17 +545,17 @@
                             <label><input type="checkbox" name="specialtyAudioSource-${roomCount}" value="Streaming (e.g., Spotify, Apple Music etc.)"> Streaming (e.g., Spotify, Apple Music etc.)</label>
                             <label><input type="checkbox" name="specialtyAudioSource-${roomCount}" value="Local input"> Local input</label>
                         </div>
-                        <div><label>Display Type:</label>
-                            <label><input type="checkbox" name="specialtyDisplayType-${roomCount}" value="Wall-mounted TV"> Wall-mounted TV</label>
-                            <label><input type="checkbox" name="specialtyDisplayType-${roomCount}" value="Projector"> Projector</label>
+                        <div><label>TV Type:</label>
+                            <label><input type="checkbox" name="specialtyTVType-${roomCount}" value="Wall-mounted TV"> Wall-mounted TV</label>
+                            <label><input type="checkbox" name="specialtyTVType-${roomCount}" value="Projector"> Projector</label>
                         </div>
-                        <div><label>Display Size:</label>
-                            <label><input type="checkbox" name="specialtyDisplaySize-${roomCount}" value="32-43 inches"> 32-43 inches</label>
-                            <label><input type="checkbox" name="specialtyDisplaySize-${roomCount}" value="43-55 inches"> 43-55 inches</label>
-                            <label><input type="checkbox" name="specialtyDisplaySize-${roomCount}" value="55-65 inches"> 55-65 inches</label>
-                            <label><input type="checkbox" name="specialtyDisplaySize-${roomCount}" value="65-85 inches"> 65-85 inches</label>
-                            <label><input type="checkbox" name="specialtyDisplaySize-${roomCount}" value="85-100 inches"> 85-100 inches</label>
-                            <label><input type="checkbox" name="specialtyDisplaySize-${roomCount}" value="100+ inches"> 100+ inches</label>
+                        <div><label>TV Size:</label>
+                            <label><input type="checkbox" name="specialtyTVSize-${roomCount}" value="32-43 inches"> 32-43 inches</label>
+                            <label><input type="checkbox" name="specialtyTVSize-${roomCount}" value="43-55 inches"> 43-55 inches</label>
+                            <label><input type="checkbox" name="specialtyTVSize-${roomCount}" value="55-65 inches"> 55-65 inches</label>
+                            <label><input type="checkbox" name="specialtyTVSize-${roomCount}" value="65-85 inches"> 65-85 inches</label>
+                            <label><input type="checkbox" name="specialtyTVSize-${roomCount}" value="85-100 inches"> 85-100 inches</label>
+                            <label><input type="checkbox" name="specialtyTVSize-${roomCount}" value="100+ inches"> 100+ inches</label>
                         </div>
                         <div><label>Video Sources:</label>
                             <label><input type="checkbox" name="specialtyVideoSource-${roomCount}" value="Sky"> Sky</label>
@@ -578,22 +590,33 @@
                             <label><input type="checkbox" name="specialtyControl-${roomCount}" value="Touch Screen On-Wall"> Touch Screen On-Wall</label>
                             <label><input type="checkbox" name="specialtyControl-${roomCount}" value="Waterproof Remote"> Waterproof Remote</label>
                         </div>
+                        <div><label>Data/Phone:</label>
+                            <label><input type="checkbox" name="specialtyData-${roomCount}" value="Dec Phone Systems"> Dec Phone Systems</label>
+                            <label><input type="checkbox" name="specialtyData-${roomCount}" value="BT Phone Point"> BT Phone Point</label>
+                            <label><input type="checkbox" name="specialtyData-${roomCount}" value="Data Point"> Data Point</label>
+                        </div>
                     </div>
                 </div>
                 <label>Audio:</label>
                 <label>Multi-room:</label><label><input type="checkbox" name="audioMultiRoom-${roomCount}" value="Multi-Room Audio"> Multi-Room Audio</label>
+                <label><input type="checkbox" name="audioMultiRoom-${roomCount}" value="Standalone"> Standalone</label>
                 <label>Speaker:</label>
-                <label><input type="checkbox" name="audioSpeaker-${roomCount}" value="Floor-standing Speakers"> Floor-standing Speakers</label>
-                <label><input type="checkbox" name="audioSpeaker-${roomCount}" value="In-wall/Ceiling Speakers"> In-wall/Ceiling Speakers</label>
+                <label><input type="checkbox" name="audioSpeaker-${roomCount}" value="In-Ceiling"> In-Ceiling</label>
+                <label><input type="checkbox" name="audioSpeaker-${roomCount}" value="In-wall"> In-wall</label>
+                <label><input type="checkbox" name="audioSpeaker-${roomCount}" value="Floor-standing"> Floor-standing</label>
                 <label><input type="checkbox" name="audioSpeaker-${roomCount}" value="Bookshelf Speakers"> Bookshelf Speakers</label>
-                <label><input type="checkbox" name="audioSpeaker-${roomCount}" value="Portable Speakers"> Portable Speakers</label>
-                <label><input type="checkbox" name="audioSpeaker-${roomCount}" value="Outdoor Speakers"> Outdoor Speakers</label>
-                <label><input type="checkbox" name="audioSpeaker-${roomCount}" value="Sonos Integration"> Sonos Integration</label>
                 <label><input type="checkbox" name="audioSpeaker-${roomCount}" value="Plaster In Speakers"> Plaster In Speakers</label>
+                <label><input type="checkbox" name="audioSpeaker-${roomCount}" value="Portable Speakers"> Portable Speakers</label>
+                <label><input type="checkbox" name="audioSpeaker-${roomCount}" value="Sonos Integration"> Sonos Integration</label>
+                <label><input type="checkbox" name="audioSpeaker-${roomCount}" value="In-wall Subwoofer"> In-wall Subwoofer</label>
+                <label><input type="checkbox" name="audioSpeaker-${roomCount}" value="Free Standing Subwoofer"> Free Standing Subwoofer</label>
+                <label><input type="checkbox" name="audioSpeaker-${roomCount}" value="Hidden Subwoofer"> Hidden Subwoofer</label>
                 <label>Audio Sources:</label>
-                <label><input type="checkbox" name="audioSource-${roomCount}" value="Radio"> Radio (DAB/Internet)</label>
-                <label><input type="checkbox" name="audioSource-${roomCount}" value="Streaming"> Streaming (e.g., Spotify)</label>
+                <label><input type="checkbox" name="audioSource-${roomCount}" value="Radio (DAB/Internet)"> Radio (DAB/Internet)</label>
+                <label><input type="checkbox" name="audioSource-${roomCount}" value="Streaming (e.g., Spotify, Apple Music etc.)"> Streaming (e.g., Spotify, Apple Music etc.)</label>
+                <label><input type="checkbox" name="audioSource-${roomCount}" value="Bluetooth"> Bluetooth</label>
                 <label><input type="checkbox" name="audioSource-${roomCount}" value="CDs"> CDs</label>
+                <label><input type="checkbox" name="audioSource-${roomCount}" value="Local Input"> Local Input</label>
                 <label>Display Type:</label>
                 <label><input type="checkbox" name="displayType-${roomCount}" value="Wall-mounted TV"> Wall-mounted TV</label>
                 <label><input type="checkbox" name="displayType-${roomCount}" value="Projector"> Projector</label>
@@ -656,7 +679,7 @@
                     speakerOptions.forEach(option => {
                         const value = option.value;
                         if (isExternalArea) {
-                            option.parentElement.style.display = ['Floor-standing Speakers', 'In-wall/Ceiling Speakers', 'Bookshelf Speakers', 'Portable Speakers', 'Plaster In Speakers', 'Sonos Integration'].includes(value) ? 'none' : 'block';
+                            option.parentElement.style.display = ['In-Ceiling', 'In-wall', 'Floor-standing', 'Bookshelf Speakers', 'Plaster In Speakers', 'Portable Speakers', 'Sonos Integration', 'In-wall Subwoofer', 'Free Standing Subwoofer', 'Hidden Subwoofer'].includes(value) ? 'none' : 'block';
                         } else {
                             option.parentElement.style.display = 'block';
                         }
@@ -692,13 +715,15 @@
                             speaker: Array.from(document.querySelectorAll(`input[name="specialtySpeaker-${i}"]:checked`)).map(el => el.value),
                             speakerFinish: Array.from(document.querySelectorAll(`input[name="specialtySpeakerFinish-${i}"]:checked`)).map(el => el.value),
                             audioSource: Array.from(document.querySelectorAll(`input[name="specialtyAudioSource-${i}"]:checked`)).map(el => el.value),
-                            displayType: Array.from(document.querySelectorAll(`input[name="specialtyDisplayType-${i}"]:checked`)).map(el => el.value),
-                            displaySize: Array.from(document.querySelectorAll(`input[name="specialtyDisplaySize-${i}"]:checked`)).map(el => el.value),
+                            tvType: Array.from(document.querySelectorAll(`input[name="specialtyTVType-${i}"]:checked`)).map(el => el.value),
+                            tvSize: Array.from(document.querySelectorAll(`input[name="specialtyTVSize-${i}"]:checked`)).map(el => el.value),
                             videoSource: Array.from(document.querySelectorAll(`input[name="specialtyVideoSource-${i}"]:checked`)).map(el => el.value),
                             lighting: Array.from(document.querySelectorAll(`input[name="specialtyLighting-${i}"]:checked`)).map(el => el.value),
                             security: Array.from(document.querySelectorAll(`input[name="specialtySecurity-${i}"]:checked`)).map(el => el.value),
                             control: Array.from(document.querySelectorAll(`input[name="specialtyControl-${i}"]:checked`)).map(el => el.value),
                             seating: Array.from(document.querySelectorAll(`input[name="specialtySeating-${i}"]:checked`)).map(el => el.value),
+                            special: Array.from(document.querySelectorAll(`input[name="specialtySpecial-${i}"]:checked`)).map(el => el.value),
+                            data: Array.from(document.querySelectorAll(`input[name="specialtyData-${i}"]:checked`)).map(el => el.value),
                             other: document.querySelector(`input[name="customOptionText-${i}"]`)?.value
                         },
                         audio: {
