@@ -200,7 +200,7 @@
         let roomCount = 0;
 
         // Initialize EmailJS (replace with your EmailJS credentials)
-        emailjs.init('YOUR_USER_ID'); // Add your EmailJS User ID here
+        emailjs.init('YOUR_USER_ID'); // Replace with your EmailJS User ID
 
         function addRoom() {
             roomCount++;
@@ -756,7 +756,7 @@
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
                 phone: document.getElementById('phone').value,
-                contactMethod: document.querySelector('input[name="contact"]:checked').value,
+                contactMethod: document.querySelector('input[name="contact"]:checked')?.value || 'Not specified',
                 property: {
                     types: Array.from(document.querySelectorAll('input[name="propertyType"]:checked')).map(el => el.value),
                     other: document.querySelector('input[name="propertyOtherText"]')?.value,
@@ -777,11 +777,27 @@
                 considerations: document.getElementById('considerations').value,
                 notes: document.getElementById('notes').value
             };
-            alert('Thank you for your configuration! Darke AV will contact you to discuss your bespoke smart home solution.');
-            console.log(data);
-            // form.reset(); // Uncomment to reset form after submit
-            // document.getElementById('roomsContainer').innerHTML = ''; // Uncomment to clear rooms
-            // roomCount = 0; // Uncomment to reset room count
+
+            // Send data via EmailJS
+            const templateParams = {
+                to_email: data.email,
+                from_name: 'Darke AV Configurator',
+                message: 'Thank you for your submission! Below are your configuration details. A fillable PDF is available for download.',
+                config_data: JSON.stringify(data, null, 2) // Pretty print JSON for readability
+            };
+
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                .then((response) => {
+                    alert('Configuration submitted successfully! Check your email for details.');
+                    console.log('SUCCESS!', response.status, response.text);
+                    // Optionally reset form after success
+                    // form.reset();
+                    // document.getElementById('roomsContainer').innerHTML = '';
+                    // roomCount = 0;
+                }, (error) => {
+                    alert('Failed to submit configuration. Please try again or contact support. Error: ' + error.text);
+                    console.error('FAILED...', error);
+                });
         });
 
         downloadPdfBtn.addEventListener('click', () => {
