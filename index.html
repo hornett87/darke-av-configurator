@@ -207,8 +207,13 @@
         emailjs.init('YOUR_USER_ID'); // Replace with your EmailJS User ID
 
         function addRoom() {
+            console.log('Add Room button clicked for roomCount:', roomCount); // Debug log
             roomCount++;
             const roomsContainer = document.getElementById('roomsContainer');
+            if (!roomsContainer) {
+                console.error('roomsContainer not found');
+                return;
+            }
             const roomDiv = document.createElement('div');
             roomDiv.className = 'room-section';
             roomDiv.id = `room-${roomCount}`;
@@ -692,8 +697,9 @@
                     if (hasSpecialty) {
                         // Hide non-specialty options
                         nonSpecialtyOptions.classList.add('hidden');
-                        // Show only the relevant specialty options
+                        // Show specialty options container
                         specialtyOptions.classList.remove('hidden');
+                        // Hide all specialty option divs and show only the selected one
                         specialtyOptionsDivs.forEach(div => {
                             div.classList.add('hidden');
                             if (Array.from(specialtyCheckboxes).some(cb => cb.checked && cb.value === div.getAttribute('data-for'))) {
@@ -729,7 +735,7 @@
 
         function removeRoom(roomId) {
             const roomDiv = document.getElementById(`room-${roomId}`);
-            roomDiv.remove();
+            if (roomDiv) roomDiv.remove();
         }
 
         const form = document.getElementById('configuratorForm');
