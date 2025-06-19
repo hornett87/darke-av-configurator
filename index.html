@@ -598,9 +598,10 @@
                     </div>
                 </div>
                 <label>Audio:</label>
-                <label>Multi-room:</label><label><input type="checkbox" name="audioMultiRoom-${roomCount}" value="Multi-Room Audio"> Multi-Room Audio</label>
+                <label>Multi-room:</label>
+                <label><input type="checkbox" name="audioMultiRoom-${roomCount}" value="Multi-Room Audio"> Multi-Room Audio</label>
                 <label><input type="checkbox" name="audioMultiRoom-${roomCount}" value="Standalone"> Standalone</label>
-                <label>Speaker:</label>
+                <label>Speakers:</label>
                 <label><input type="checkbox" name="audioSpeaker-${roomCount}" value="In-Ceiling"> In-Ceiling</label>
                 <label><input type="checkbox" name="audioSpeaker-${roomCount}" value="In-wall"> In-wall</label>
                 <label><input type="checkbox" name="audioSpeaker-${roomCount}" value="Floor-standing"> Floor-standing</label>
@@ -652,6 +653,15 @@
                 <label><input type="checkbox" name="security-${roomCount}" value="Motion Sensors"> Motion Sensors</label>
                 <label><input type="checkbox" name="security-${roomCount}" value="Smart Doorbell"> Smart Doorbell</label>
                 <label><input type="checkbox" name="security-${roomCount}" value="Panic Button"> Panic Button</label>
+                <label>Control Option:</label>
+                <label><input type="checkbox" name="control-${roomCount}" value="Handheld Remote"> Handheld Remote</label>
+                <label><input type="checkbox" name="control-${roomCount}" value="Touch Screen Tabletop"> Touch Screen Tabletop</label>
+                <label><input type="checkbox" name="control-${roomCount}" value="Touch Screen On-Wall"> Touch Screen On-Wall</label>
+                <label><input type="checkbox" name="control-${roomCount}" value="Waterproof Remote"> Waterproof Remote</label>
+                <label>Data/Phone:</label>
+                <label><input type="checkbox" name="data-${roomCount}" value="Dec Phone Systems"> Dec Phone Systems</label>
+                <label><input type="checkbox" name="data-${roomCount}" value="BT Phone Point"> BT Phone Point</label>
+                <label><input type="checkbox" name="data-${roomCount}" value="Data Point"> Data Point</label>
                 <label>Room Notes:</label><textarea name="roomNotes-${roomCount}"></textarea>
             `;
             roomsContainer.appendChild(roomDiv);
@@ -736,6 +746,8 @@
                         videoSources: Array.from(document.querySelectorAll(`input[name="videoSources-${i}"]:checked`)).map(el => el.value),
                         lighting: Array.from(document.querySelectorAll(`input[name="lighting-${i}"]:checked`)).map(el => el.value),
                         security: Array.from(document.querySelectorAll(`input[name="security-${i}"]:checked`)).map(el => el.value),
+                        control: Array.from(document.querySelectorAll(`input[name="control-${i}"]:checked`)).map(el => el.value),
+                        data: Array.from(document.querySelectorAll(`input[name="data-${i}"]:checked`)).map(el => el.value),
                         notes: document.querySelector(`textarea[name="roomNotes-${i}"]`).value
                     });
                 }
