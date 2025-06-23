@@ -1,39 +1,45 @@
-// --- Tab/section switching ---
-function showMultiroomMusicConfigurator() {
-  document.getElementById("main-system-selection").style.display = "none";
-  document.getElementById("music-step-1").style.display = "";
-  document.getElementById("music-step-2").style.display = "none";
-  document.getElementById("music-step-3").style.display = "none";
-  resetConfigurator();
-}
-function hideMultiroomMusicConfigurator() {
-  document.getElementById("main-system-selection").style.display = "";
-  document.getElementById("music-step-1").style.display = "none";
-  document.getElementById("music-step-2").style.display = "none";
-  document.getElementById("music-step-3").style.display = "none";
-}
-function showStep(n) {
-  document.getElementById('music-step-1').style.display = n === 1 ? '' : 'none';
-  document.getElementById('music-step-2').style.display = n === 2 ? '' : 'none';
-  document.getElementById('music-step-3').style.display = n === 3 ? '' : 'none';
+// --- General Navigation ---
+function showStep(stepId) {
+  ["client-info-step", "system-selection-step", "music-step-1", "music-step-2", "music-step-3", "final-step"].forEach(id => {
+    document.getElementById(id).style.display = (id === stepId) ? "" : "none";
+  });
 }
 
-// --- Configurator state ---
+// --- Step 1: Client Info ---
+document.getElementById('client-info-form').onsubmit = function(e) {
+  e.preventDefault();
+  // You can capture client info here if needed
+  showStep("system-selection-step");
+};
+function backToClientInfo() {
+  showStep("client-info-step");
+}
+
+// --- Step 2: System Selection ---
+function showMultiroomMusicConfigurator() {
+  resetConfigurator();
+  showStep("music-step-1");
+}
+function backToSystemSelection() {
+  showStep("system-selection-step");
+}
+
+// --- Multiroom Music System Configurator State ---
 const allRooms = ["Hall", "Lounge", "Kitchen", "Bedroom", "Dining Room"];
 let selectedRooms = [];
 let roomOptions = {}; // { roomName: { option: '', extraPair: false } }
 let expandedRoom = null;
 
+// --- STEP 1: Room Selection ---
 function resetConfigurator() {
   selectedRooms = [];
   roomOptions = {};
   expandedRoom = null;
   renderRoomSelection();
 }
-
-// --- STEP 1: Room Selection ---
 function renderRoomSelection() {
   const roomSelectionList = document.getElementById('room-selection-list');
+  if (!roomSelectionList) return;
   roomSelectionList.innerHTML = '';
   allRooms.forEach(room => {
     const btn = document.createElement("button");
@@ -51,44 +57,46 @@ function renderRoomSelection() {
     roomSelectionList.appendChild(btn);
   });
 }
+if(document.getElementById('to-step-2')) {
+  document.getElementById('to-step-2').onclick = () => {
+    if (selectedRooms.length > 0) {
+      showStep("music-step-2");
+      renderRoomList();
+    } else {
+      alert("Please select at least one room.");
+    }
+  };
+}
+if(document.getElementById('back-to-step-1')) {
+  document.getElementById('back-to-step-1').onclick = () => showStep("music-step-1");
+}
+if(document.getElementById('add-room-btn')) {
+  document.getElementById('add-room-btn').onclick = () => {
+    const name = prompt("Enter new room name:");
+    if (name && !selectedRooms.includes(name)) {
+      selectedRooms.push(name);
+      renderRoomList();
+    }
+  };
+}
+if(document.getElementById('to-step-3')) {
+  document.getElementById('to-step-3').onclick = () => {
+    // All done! For demo, just go to a thank you page
+    showStep('final-step');
+  };
+}
+if(document.getElementById('back-to-step-2')) {
+  document.getElementById('back-to-step-2').onclick = () => showStep("music-step-2");
+}
+
 document.addEventListener('DOMContentLoaded', function() {
-  // Attach event handlers after DOM is ready
   renderRoomSelection();
-  if(document.getElementById('to-step-2')) {
-    document.getElementById('to-step-2').onclick = () => {
-      if (selectedRooms.length > 0) {
-        showStep(2);
-        renderRoomList();
-      } else {
-        alert("Please select at least one room.");
-      }
-    };
-  }
-  if(document.getElementById('back-to-step-1')) {
-    document.getElementById('back-to-step-1').onclick = () => showStep(1);
-  }
-  if(document.getElementById('add-room-btn')) {
-    document.getElementById('add-room-btn').onclick = () => {
-      const name = prompt("Enter new room name:");
-      if (name && !selectedRooms.includes(name)) {
-        selectedRooms.push(name);
-        renderRoomList();
-      }
-    };
-  }
-  if(document.getElementById('to-step-3')) {
-    document.getElementById('to-step-3').onclick = () => {
-      alert("Proceeding to next step with rooms: " + selectedRooms.join(", "));
-    };
-  }
-  if(document.getElementById('back-to-step-2')) {
-    document.getElementById('back-to-step-2').onclick = () => showStep(2);
-  }
 });
 
 // --- STEP 2: Room List ---
 function renderRoomList() {
   const roomList = document.getElementById('configured-room-list');
+  if (!roomList) return;
   roomList.innerHTML = "";
   selectedRooms.forEach(room => {
     const div = document.createElement("div");
@@ -108,14 +116,14 @@ function renderRoomList() {
     // Expand room
     div.querySelector(".room-expand").onclick = () => {
       expandedRoom = room;
-      showStep(3);
+      showStep("music-step-3");
       renderRoomExpanded();
     };
     // Configure (same as expand for now)
     div.querySelector(".room-configure").onclick = e => {
       e.preventDefault();
       expandedRoom = room;
-      showStep(3);
+      showStep("music-step-3");
       renderRoomExpanded();
     };
     roomList.appendChild(div);
@@ -125,6 +133,7 @@ function renderRoomList() {
 // --- STEP 3: Room Expanded Config ---
 function renderRoomExpanded() {
   const container = document.getElementById('expanded-room-config');
+  if (!container) return;
   container.innerHTML = "";
   if (!expandedRoom) return;
   const config = roomOptions[expandedRoom] || {};
@@ -145,13 +154,13 @@ function renderRoomExpanded() {
   header.querySelector(".room-remove").onclick = () => {
     selectedRooms = selectedRooms.filter(r => r !== expandedRoom);
     expandedRoom = null;
-    showStep(2);
+    showStep("music-step-2");
     renderRoomList();
   };
   header.querySelector(".room-configure").onclick = e => e.preventDefault();
   header.querySelector(".room-collapse").onclick = () => {
     expandedRoom = null;
-    showStep(2);
+    showStep("music-step-2");
     renderRoomList();
   };
   card.appendChild(header);
@@ -159,7 +168,7 @@ function renderRoomExpanded() {
   const speakerOptions = [
     {
       name: "Pre Wired Only",
-      desc: "If you want to future proof your home adding speaker cabling for future in ceiling speakers will allow the speakers and music streamer to be added at a later date without mess or disruption."
+      desc: "If you want to future proof your home, adding speaker cabling for future in ceiling speakers will allow the speakers and music streamer to be added at a later date without mess or disruption."
     },
     {
       name: "Bronze Quality",
@@ -221,9 +230,15 @@ function renderRoomExpanded() {
   proceedBtn.textContent = "Proceed to next room →";
   proceedBtn.onclick = () => {
     expandedRoom = null;
-    showStep(2);
+    showStep("music-step-2");
     renderRoomList();
   };
   card.appendChild(proceedBtn);
   container.appendChild(card);
+}
+
+// --- Final Step ---
+function restartConfigurator() {
+  showStep("client-info-step");
+  resetConfigurator();
 }
