@@ -2,25 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Room/Area Feature Selection</title>
-  <style>
-    .specialty-options { margin: 1em 0; padding: 1em; background: #f8f8f8; border-radius: 6px; }
-    .standard-room-options { margin: 1em 0; padding: 1em; background: #eef6ff; border-radius: 6px;}
-    fieldset { margin-bottom: 2em; }
-    legend { font-size: 1.2em; font-weight: bold; }
-    .room-area-block { margin-bottom: 2em; border: 1px solid #ccc; border-radius: 8px; }
-    label { margin-right: 1em; margin-bottom: .5em; display: inline-block; }
-    .specialty-toggles label { font-weight: normal; }
-  </style>
+  <title>Smart Home Configurator</title>
+  <meta name="viewport" content="width=900, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="configurator.css">
 </head>
 <body>
-  <h1>Room/Area Feature Selection</h1>
-  <form id="feature-form">
-    <div id="room-area-blocks"></div>
-    <button type="button" id="add-room-btn">Add Room/Area</button>
-    <br><br>
-    <button type="submit">Submit</button>
-  </form>
-  <script src="form.js"></script>
+  <div class="configurator-container" id="configurator">
+    <!-- Steps will be injected here by JS -->
+  </div>
+  <script src="configurator.js"></script>
 </body>
 </html>
