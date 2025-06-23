@@ -9,18 +9,39 @@
   <header>
     <img src="darke-av-logo.png" alt="Darke AV Logo" style="max-width:200px; margin-bottom:1em;">
     <h1>Darke AV Configurator</h1>
+    <p style="color:#3a3a3a;">Please fill in your details and select the areas/rooms you're interested in.</p>
   </header>
 
-  <section>
-    <h2>Select Areas/Rooms</h2>
-    <label><input type="checkbox" class="area-toggle" data-area="cinema"> Cinema Room</label>
-    <label><input type="checkbox" class="area-toggle" data-area="pool"> Pool</label>
-    <label><input type="checkbox" class="area-toggle" data-area="gym"> Gym</label>
-    <label><input type="checkbox" class="area-toggle" data-area="external"> External Area</label>
-    <label><input type="checkbox" class="area-toggle" data-area="standard"> Standard Room(s)</label>
-  </section>
+  <form id="smart-home-options">
+    <fieldset class="client-info">
+      <legend>Your Information</legend>
+      <label>
+        Name:
+        <input type="text" name="client_name" required>
+      </label>
+      <label>
+        Email:
+        <input type="email" name="client_email" required>
+      </label>
+      <label>
+        Phone:
+        <input type="tel" name="client_phone">
+      </label>
+      <label>
+        Project Address:
+        <input type="text" name="client_address">
+      </label>
+    </fieldset>
 
-  <form id="smart-home-options" style="margin-top:2em;">
+    <fieldset>
+      <legend>Select Areas/Rooms</legend>
+      <label><input type="checkbox" class="area-toggle" data-area="cinema"> Cinema Room</label>
+      <label><input type="checkbox" class="area-toggle" data-area="pool"> Pool</label>
+      <label><input type="checkbox" class="area-toggle" data-area="gym"> Gym</label>
+      <label><input type="checkbox" class="area-toggle" data-area="external"> External Area</label>
+      <label><input type="checkbox" class="area-toggle" data-area="standard"> Standard Room(s)</label>
+    </fieldset>
+
     <div id="cinema-fieldset" class="area-fieldset"></div>
     <div id="pool-fieldset" class="area-fieldset"></div>
     <div id="gym-fieldset" class="area-fieldset"></div>
