@@ -49,9 +49,6 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus {
   background: #eef2f8;
 }
 
-.area-fieldset { display: none; }
-.area-fieldset.active { display: block; }
-
 button[type="submit"] {
   font-size: 1.2em;
   padding: 0.5em 1.5em;
@@ -68,7 +65,7 @@ button[type="submit"]:hover {
   background: #405980;
 }
 
-#add-standard-room-btn {
+#add-room-btn {
   background: #7bb36a;
   color: #fff;
   font-size: 1em;
@@ -79,11 +76,11 @@ button[type="submit"]:hover {
   margin-left: 0.5em;
 }
 
-#add-standard-room-btn:hover {
+#add-room-btn:hover {
   background: #5b874f;
 }
 
-.remove-standard-room-btn {
+.remove-room-area-btn {
   background: #c54c4c;
   color: #fff;
   font-size: 0.95em;
@@ -94,8 +91,28 @@ button[type="submit"]:hover {
   margin-left: 0.5em;
 }
 
-.remove-standard-room-btn:hover {
+.remove-room-area-btn:hover {
   background: #8e3838;
+}
+
+.specialty-toggles {
+  margin: 0.5em 0 1em 0;
+  padding: 0.7em 1em;
+  background: #f4f8ff;
+  border-radius: 5px;
+}
+
+.specialty-options {
+  margin: 0.25em 0 1em 1.5em;
+  padding: 0.7em 1em;
+  background: #f7f7fa;
+  border-left: 3px solid #2a3e5c;
+  border-radius: 5px;
+}
+
+.room-area-block fieldset {
+  box-shadow: 0 1px 6px #e0e0e0;
+  margin-bottom: 1em;
 }
 
 .results-output, #results {
