@@ -1,4 +1,5 @@
 // --- Specialty Option Functions ---
+// Cinema
 const cinemaOptions = (idx) => `
   <div class="specialty-options cinema-options" data-specialty-block="cinema">
     <strong>Acoustic Treatment:</strong>
@@ -91,7 +92,227 @@ const cinemaOptions = (idx) => `
   </div>
 `;
 
-// (Place poolOptions, externalOptions, and gymOptions here from previous answers – omitted for brevity)
+// Pool
+const poolOptions = (idx) => `
+  <div class="specialty-options pool-options" data-specialty-block="pool">
+    <strong>Audio:</strong>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Multi-Room Audio"> Multi-Room Audio</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Standalone"> Standalone</label>
+    <br>
+    <strong>Speakers:</strong>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="In-wall"> In-wall</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="In-Ceiling"> In-Ceiling</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Wall-Mount"> Wall-Mount</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Pendant"> Pendant</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Under Water"> Under Water</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Portable"> Portable</label>
+    <br>
+    <strong>Speaker Finish:</strong>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="White"> White</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Black"> Black</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Custom"> Custom</label>
+    <br>
+    <strong>Audio Sources:</strong>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Radio (DAB/Internet)"> Radio (DAB/Internet)</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Streaming (e.g., Spotify, Apple Music etc.)"> Streaming (e.g., Spotify, Apple Music etc.)</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Local input"> Local input</label>
+    <br>
+    <strong>TV Type:</strong>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Projector"> Projector</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Ceiling Mounted"> Ceiling Mounted</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Hidden Screen"> Hidden Screen</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Automated Screen Lift"> Automated Screen Lift</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Motorised Mount"> Motorised Mount</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Mirror TV"> Mirror TV</label>
+    <br>
+    <strong>TV Size:</strong>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="32-43 inches"> 32-43 inches</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="43-55 inches"> 43-55 inches</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="55-65 inches"> 55-65 inches</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="65-85 inches"> 65-85 inches</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="85-100 inches"> 85-100 inches</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="100+ inches"> 100+ inches</label>
+    <br>
+    <strong>Video Sources:</strong>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Sky Q"> Sky Q</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Sky Stream"> Sky Stream</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Freeview"> Freeview</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="BT TV"> BT TV</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Amazon Fire TV"> Amazon Fire TV</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Apple TV"> Apple TV</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Kaleidescape Movie Player"> Kaleidescape Movie Player</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Video Conferencing"> Video Conferencing</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Local Input (Games Console, Laptop etc.)"> Local Input (Games Console, Laptop etc.)</label>
+    <br>
+    <strong>Lighting & Climate:</strong>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Heating Control"> Heating Control</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="AC Control"> AC Control</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Ventilation"> Ventilation</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Lighting Control"> Lighting Control</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Motorized Blinds"> Motorized Blinds</label>
+    <br>
+    <strong>Security:</strong>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Interior Camera"> Interior Camera</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Smart Locks"> Smart Locks</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Motion Sensor"> Motion Sensor</label>
+    <br>
+    <strong>Control Option:</strong>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Handheld Remote"> Handheld Remote</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Touch Screen Tabletop"> Touch Screen Tabletop</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Touch Screen On-Wall"> Touch Screen On-Wall</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Waterproof Remote"> Waterproof Remote</label>
+    <br>
+    <strong>Data/Phone:</strong>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Dec Phone Systems"> Dec Phone Systems</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="BT Phone Point"> BT Phone Point</label>
+    <label><input type="checkbox" name="pool_features_${idx}[]" value="Data Point"> Data Point</label>
+  </div>
+`;
+
+// External
+const externalOptions = (idx) => `
+  <div class="specialty-options external-options" data-specialty-block="external">
+    <strong>Audio:</strong>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Multi-Room Audio"> Multi-Room Audio</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Standalone"> Standalone</label>
+    <br>
+    <strong>Speakers:</strong>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Surface-Mount / Wall-Mount Speakers"> Surface-Mount / Wall-Mount Speakers</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Landscape Satellite (Stake) Speakers"> Landscape Satellite (Stake) Speakers</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Rock"> Rock</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Bollard Speakers"> Bollard Speakers</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="In-Ground/Subwoofer Units"> In-Ground/Subwoofer Units</label>
+    <br>
+    <strong>Speaker Finish:</strong>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Black"> Black</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="White"> White</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Custom"> Custom</label>
+    <br>
+    <strong>Audio Sources:</strong>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Radio (DAB/Internet)"> Radio (DAB/Internet)</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Streaming (e.g., Spotify, Apple Music etc.)"> Streaming (e.g., Spotify, Apple Music etc.)</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="CDs"> CDs</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Turn Table"> Turn Table</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Local input"> Local input</label>
+    <br>
+    <strong>TV Type:</strong>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Wall-mounted TV"> Wall-mounted TV</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Projector"> Projector</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Hidden Screen"> Hidden Screen</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Automated Screen Lift"> Automated Screen Lift</label>
+    <br>
+    <strong>TV Size:</strong>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="32-43 inches"> 32-43 inches</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="43-55 inches"> 43-55 inches</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="55-65 inches"> 55-65 inches</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="65-85 inches"> 65-85 inches</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="85-100 inches"> 85-100 inches</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="100+ inches"> 100+ inches</label>
+    <br>
+    <strong>Video Sources:</strong>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Sky"> Sky</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Freeview"> Freeview</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="BT TV"> BT TV</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Amazon Fire TV"> Amazon Fire TV</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Apple TV"> Apple TV</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Video Conferencing"> Video Conferencing</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Local Input (Games Console, Laptop etc.)"> Local Input (Games Console, Laptop etc.)</label>
+    <br>
+    <strong>Lighting & Climate:</strong>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Lighting Control"> Lighting Control</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Motorized Blinds"> Motorized Blinds</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Heater Control"> Heater Control</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Renewable Energy"> Renewable Energy</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Smart Radiators"> Smart Radiators</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Automated Window Tinting"> Automated Window Tinting</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Underfloor Heating Control"> Underfloor Heating Control</label>
+    <br>
+    <strong>Security:</strong>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Interior Camera"> Interior Camera</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Exterior Camera"> Exterior Camera</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Video Intercom"> Video Intercom</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Smart Locks"> Smart Locks</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Motion Sensors"> Motion Sensors</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Smart Doorbell"> Smart Doorbell</label>
+    <br>
+    <strong>Control Option:</strong>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Handheld Remote"> Handheld Remote</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Touch Screen Tabletop"> Touch Screen Tabletop</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Touch Screen On-Wall"> Touch Screen On-Wall</label>
+    <label><input type="checkbox" name="external_features_${idx}[]" value="Waterproof Remote"> Waterproof Remote</label>
+  </div>
+`;
+
+// Gym
+const gymOptions = (idx) => `
+  <div class="specialty-options gym-options" data-specialty-block="gym">
+    <strong>Audio:</strong>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Multi-Room Audio"> Multi-Room Audio</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Standalone"> Standalone</label>
+    <br>
+    <strong>Speakers:</strong>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="In-wall"> In-wall</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="In-Ceiling"> In-Ceiling</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Wall-Mount"> Wall-Mount</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Pendant"> Pendant</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Plaster In"> Plaster In</label>
+    <br>
+    <strong>Speaker Finish:</strong>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Black"> Black</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="White"> White</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Custom"> Custom</label>
+    <br>
+    <strong>Audio Sources:</strong>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Radio (DAB/Internet)"> Radio (DAB/Internet)</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Streaming (e.g., Spotify, Apple Music etc.)"> Streaming (e.g., Spotify, Apple Music etc.)</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Local input"> Local input</label>
+    <br>
+    <strong>TV Type:</strong>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Wall-mounted TV"> Wall-mounted TV</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Projector"> Projector</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Ceiling Mounted"> Ceiling Mounted</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Hidden Screen"> Hidden Screen</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Automated Screen Lift"> Automated Screen Lift</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Motorised Mount"> Motorised Mount</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Mirror TV"> Mirror TV</label>
+    <br>
+    <strong>TV Size:</strong>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="32-43 inches"> 32-43 inches</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="43-55 inches"> 43-55 inches</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="55-65 inches"> 55-65 inches</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="65-85 inches"> 65-85 inches</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="85-100 inches"> 85-100 inches</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="100+ inches"> 100+ inches</label>
+    <br>
+    <strong>Video Sources:</strong>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Sky"> Sky</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Freeview"> Freeview</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="BT TV"> BT TV</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Amazon Fire TV"> Amazon Fire TV</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Apple TV"> Apple TV</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Kaleidescape Movie Player"> Kaleidescape Movie Player</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Video Conferencing"> Video Conferencing</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Local Input (Games Console, Laptop etc.)"> Local Input (Games Console, Laptop etc.)</label>
+    <br>
+    <strong>Lighting & Climate:</strong>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Lighting Control"> Lighting Control</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Ventilation Control"> Ventilation Control</label>
+    <br>
+    <strong>Security:</strong>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Interior Camera"> Interior Camera</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Smart Locks"> Smart Locks</label>
+    <br>
+    <strong>Control Option:</strong>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Handheld Remote"> Handheld Remote</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Touch Screen Tabletop"> Touch Screen Tabletop</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Touch Screen On-Wall"> Touch Screen On-Wall</label>
+    <br>
+    <strong>Data/Phone:</strong>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Dec Phone Systems"> Dec Phone Systems</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="BT Phone Point"> BT Phone Point</label>
+    <label><input type="checkbox" name="gym_features_${idx}[]" value="Data Point"> Data Point</label>
+  </div>
+`;
 
 // --- Standard Options Function ---
 const standardOptions = (idx) => `
@@ -172,6 +393,7 @@ const standardOptions = (idx) => `
   </div>
 `;
 
+// --- Room Area HTML Template ---
 const roomAreaHTML = (idx = 1) => `
   <div class="room-area-block">
     <fieldset>
