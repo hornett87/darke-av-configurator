@@ -1,10 +1,12 @@
-// Cinema, Pool, Gym, External, and Standard Room option HTML (abbreviated for demo; expand as needed)
 const cinemaHTML = `
 <fieldset>
   <legend>Cinema Room Options</legend>
-  <label><input type="checkbox" name="cinema_acoustic[]" value="Basic Soundproofing"> Basic Soundproofing</label>
   <label><input type="checkbox" name="cinema_acoustic[]" value="Essential Panels"> Essential Panels</label>
-  <!-- Add more cinema options here -->
+  <label><input type="checkbox" name="cinema_acoustic[]" value="Full Wall Treatment"> Full Wall Treatment</label>
+  <label><input type="checkbox" name="cinema_acoustic[]" value="Diffusion Panels"> Diffusion Panels</label>
+  <label><input type="checkbox" name="cinema_acoustic[]" value="Basic Soundproofing – door seals and carpet underlay"> Basic Soundproofing – door seals and carpet underlay</label>
+  <label><input type="checkbox" name="cinema_acoustic[]" value="Advanced Isolation – upgraded isolation for walls, floor, and door"> Advanced Isolation – upgraded isolation for walls, floor, and door</label>
+  <!-- Add the rest of your Cinema options here -->
 </fieldset>
 `;
 const poolHTML = `
@@ -12,7 +14,7 @@ const poolHTML = `
   <legend>Pool Options</legend>
   <label><input type="checkbox" name="pool_audio[]" value="Multi-Room Audio"> Multi-Room Audio</label>
   <label><input type="checkbox" name="pool_audio[]" value="Standalone"> Standalone</label>
-  <!-- Add more pool options here -->
+  <!-- Add the rest of your Pool options here -->
 </fieldset>
 `;
 const gymHTML = `
@@ -20,7 +22,7 @@ const gymHTML = `
   <legend>Gym Options</legend>
   <label><input type="checkbox" name="gym_audio[]" value="Multi-Room Audio"> Multi-Room Audio</label>
   <label><input type="checkbox" name="gym_audio[]" value="Standalone"> Standalone</label>
-  <!-- Add more gym options here -->
+  <!-- Add the rest of your Gym options here -->
 </fieldset>
 `;
 const externalHTML = `
@@ -28,7 +30,7 @@ const externalHTML = `
   <legend>External Area Options</legend>
   <label><input type="checkbox" name="external_audio[]" value="Multi-Room Audio"> Multi-Room Audio</label>
   <label><input type="checkbox" name="external_audio[]" value="Standalone"> Standalone</label>
-  <!-- Add more external area options here -->
+  <!-- Add the rest of your External Area options here -->
 </fieldset>
 `;
 const standardRoomHTML = (idx = 1) => `
@@ -41,7 +43,7 @@ const standardRoomHTML = (idx = 1) => `
     </label>
     <label><input type="checkbox" name="standard_audio_${idx}[]" value="Multi-Room Audio"> Multi-Room Audio</label>
     <label><input type="checkbox" name="standard_audio_${idx}[]" value="Standalone"> Standalone</label>
-    <!-- Add more standard room options here -->
+    <!-- Add the rest of your Standard Room options here -->
     <button type="button" class="remove-standard-room-btn" style="margin-top:1em;">Remove Room</button>
   </fieldset>
 </div>
@@ -107,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('smart-home-options').addEventListener('submit', function(e) {
     e.preventDefault();
     const data = new FormData(this);
-    let output = '<h2>Selected Options:</h2><ul>';
+    let output = '<h2>Submitted Information & Selections:</h2><ul>';
     for (const [key, value] of data.entries()) {
       output += `<li><strong>${key}:</strong> ${value}</li>`;
     }
