@@ -4,19 +4,13 @@
   <meta charset="UTF-8">
   <title>Darke AV Configurator</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    .area-fieldset { display: none; margin-bottom: 1.5em; }
-    .area-fieldset.active { display: block; }
-    .standard-room-list .standard-room-block { margin-bottom: 1.5em; border: 1px solid #ccc; border-radius: 8px;}
-  </style>
 </head>
 <body>
   <header>
-    <img src="darke-av-logo.png" alt="Darke AV Logo" style="max-width:200px; margin-bottom: 1em;">
+    <img src="darke-av-logo.png" alt="Darke AV Logo" style="max-width:200px; margin-bottom:1em;">
     <h1>Darke AV Configurator</h1>
   </header>
 
-  <!-- AREA/ROOM SELECTION -->
   <section>
     <h2>Select Areas/Rooms</h2>
     <label><input type="checkbox" class="area-toggle" data-area="cinema"> Cinema Room</label>
@@ -31,15 +25,12 @@
     <div id="pool-fieldset" class="area-fieldset"></div>
     <div id="gym-fieldset" class="area-fieldset"></div>
     <div id="external-fieldset" class="area-fieldset"></div>
-
     <div id="standard-fieldset" class="area-fieldset standard-room-list">
-      <button type="button" id="add-standard-room-btn" style="margin-bottom:1em;">+ Add Standard Room</button>
+      <button type="button" id="add-standard-room-btn" style="margin-bottom:1em;display:none;">+ Add Standard Room</button>
       <div id="standard-room-blocks"></div>
     </div>
-
     <button type="submit" style="margin-top:2em; font-size:1.2em;">Submit</button>
   </form>
-
   <script src="form.js"></script>
 </body>
 </html>
