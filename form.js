@@ -2,33 +2,55 @@
 
 const cinemaOptions = (idx) => `
   <div class="specialty-options cinema-options" data-specialty-block="cinema">
-    <strong>Cinema Features:</strong>
-    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Dolby Atmos"> Dolby Atmos</label>
-    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Surround Sound"> Surround Sound</label>
-    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Acoustic Treatment"> Acoustic Treatment</label>
-    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Soundproofing"> Soundproofing</label>
+    <strong>Display</strong>
     <label><input type="checkbox" name="cinema_features_${idx}[]" value="4K Projector"> 4K Projector</label>
     <label><input type="checkbox" name="cinema_features_${idx}[]" value="8K Projector"> 8K Projector</label>
-    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Motorised Screen"> Motorised Screen</label>
-    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Fixed Frame Screen"> Fixed Frame Screen</label>
     <label><input type="checkbox" name="cinema_features_${idx}[]" value="Ultra Short Throw Projector"> Ultra Short Throw Projector</label>
     <label><input type="checkbox" name="cinema_features_${idx}[]" value="MicroLED Display"> MicroLED Display</label>
-    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Cinema Seating"> Cinema Seating</label>
+    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Motorised Screen"> Motorised Screen</label>
+    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Fixed Frame Screen"> Fixed Frame Screen</label>
     <label><input type="checkbox" name="cinema_features_${idx}[]" value="Star Ceiling"> Star Ceiling</label>
     <label><input type="checkbox" name="cinema_features_${idx}[]" value="LED Step Lighting"> LED Step Lighting</label>
-    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Acoustic Panels"> Acoustic Panels</label>
-    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Lighting Control"> Lighting Control</label>
-    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Control System"> Control System</label>
-    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Touch Screen Control"> Touch Screen Control</label>
+
+    <strong>Audio</strong>
+    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Dolby Atmos"> Dolby Atmos</label>
+    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Surround Sound"> Surround Sound</label>
+    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Acoustic Treatment (Room-wide)"> Acoustic Treatment (Room-wide)</label>
+    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Soundproofing"> Soundproofing</label>
+
+    <em>Subwoofer Configuration:</em>
+    <label><input type="checkbox" name="cinema_features_${idx}[]" value="In-wall Subwoofer"> In-wall Subwoofer</label>
+    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Free-standing Subwoofer"> Free-standing Subwoofer</label>
+    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Hidden Subwoofer"> Hidden Subwoofer</label>
+
+    <em>Speakers (Cinema Zone):</em>
+    <label><input type="checkbox" name="cinema_features_${idx}[]" value="In-ceiling Speakers"> In-ceiling Speakers</label>
+    <label><input type="checkbox" name="cinema_features_${idx}[]" value="In-wall Speakers"> In-wall Speakers</label>
+    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Floor-standing Speakers"> Floor-standing Speakers</label>
+    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Plaster-in Speakers"> Plaster-in Speakers</label>
+
+    <strong>Seating & Room Fit-Out</strong>
+    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Cinema Seating (Recliner / Tiered)"> Cinema Seating (Recliner / Tiered)</label>
+    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Raised Flooring (for tiered seating)"> Raised Flooring (for tiered seating)</label>
+    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Soundproof Construction"> Soundproof Construction</label>
+    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Fabric Wall Finishes"> Fabric Wall Finishes</label>
+
+    <strong>Control & Lighting</strong>
+    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Lighting Control (Cinema Scenes)"> Lighting Control (Cinema Scenes)</label>
+    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Control System (Cinema-specific)"> Control System (Cinema-specific)</label>
+    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Touch Screen Control (On-Wall / Tabletop)"> Touch Screen Control (On-Wall / Tabletop)</label>
     <label><input type="checkbox" name="cinema_features_${idx}[]" value="Handheld Remote"> Handheld Remote</label>
     <label><input type="checkbox" name="cinema_features_${idx}[]" value="Voice Control"> Voice Control</label>
+
+    <strong>Sources</strong>
     <label><input type="checkbox" name="cinema_features_${idx}[]" value="Sky"> Sky</label>
     <label><input type="checkbox" name="cinema_features_${idx}[]" value="Apple TV"> Apple TV</label>
     <label><input type="checkbox" name="cinema_features_${idx}[]" value="Amazon Fire TV"> Amazon Fire TV</label>
-    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Streaming Services"> Streaming Services</label>
-    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Games Console"> Games Console</label>
-    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Disc Player (BluRay, DVD)"> Disc Player (BluRay, DVD)</label>
     <label><input type="checkbox" name="cinema_features_${idx}[]" value="Kaleidescape"> Kaleidescape</label>
+    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Disc Player (BluRay / DVD)"> Disc Player (BluRay / DVD)</label>
+    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Games Console"> Games Console</label>
+    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Streaming Services"> Streaming Services</label>
+    <label><input type="checkbox" name="cinema_features_${idx}[]" value="Local Media Server"> Local Media Server</label>
   </div>
 `;
 const poolOptions = (idx) => `
