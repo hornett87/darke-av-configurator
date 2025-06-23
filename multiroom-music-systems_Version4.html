@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Darke AV Configurator — Multiroom Music Systems</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    body {
+      background: #181818;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    #main-system-selection {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #252525;
+    }
+    .system-card {
+      background: #B7C507;
+      color: #0D0D0D;
+      font-size: 2rem;
+      font-weight: bold;
+      padding: 2rem 3rem;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    }
+    .system-card button {
+      padding: 1rem 2.5rem;
+      font-size: 1.3rem;
+      background: #00B4B9;
+      color: #fff;
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background .2s, color .2s;
+    }
+    .system-card button:hover {
+      background: #0D0D0D;
+      color: #B7C507;
+    }
+  </style>
+</head>
+<body>
+  <div id="main-system-selection">
+    <div class="system-card">
+      Multiroom Music Systems
+      <button onclick="alert('You clicked CONFIGURE!')">CONFIGURE</button>
+    </div>
+  </div>
+</body>
+</html>
