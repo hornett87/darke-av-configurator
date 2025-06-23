@@ -3,32 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <title>Smart Home Configurator</title>
-  <meta name="viewport" content="width=900, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="configurator.css">
 </head>
 <body>
-  <div id="main-system-selection">
-    <!-- ... your other system cards ... -->
-    <a href="#" onclick="showMultiroomMusicConfigurator();return false;">CONFIGURE</a>
-    <!-- ... your other system cards ... -->
+  <!-- Step 1: Client Info -->
+  <div id="client-info-step">
+    <form id="client-info-form" class="config-card">
+      <h1>Welcome to the Smart Home Configurator</h1>
+      <p>Please enter your details to get started.</p>
+      <label>
+        Your Name<br>
+        <input type="text" id="client-name" required>
+      </label>
+      <label>
+        Email Address<br>
+        <input type="email" id="client-email" required>
+      </label>
+      <label>
+        Property Address<br>
+        <input type="text" id="client-address" required>
+      </label>
+      <button type="submit" class="primary-btn">Continue &rarr;</button>
+    </form>
   </div>
 
-  <!-- Multiroom Music Systems UI (hidden by default) -->
+  <!-- Step 2: System Selection -->
+  <div id="system-selection-step" style="display:none;">
+    <div class="config-card">
+      <h2>Select Systems to Configure</h2>
+      <div class="system-options">
+        <div class="system-card">
+          <div class="system-title">Lighting</div>
+          <button class="disabled-btn" disabled>COMING SOON</button>
+        </div>
+        <div class="system-card">
+          <div class="system-title">Multiroom Music Systems</div>
+          <button onclick="showMultiroomMusicConfigurator()">CONFIGURE</button>
+        </div>
+        <div class="system-card">
+          <div class="system-title">Home Cinema</div>
+          <button class="disabled-btn" disabled>COMING SOON</button>
+        </div>
+        <!-- Add more systems as needed -->
+      </div>
+      <button class="secondary-btn" onclick="backToClientInfo()">&larr; Back</button>
+    </div>
+  </div>
+
+  <!-- Multiroom Music Systems Configurator -->
   <div id="music-step-1" class="music-config-section" style="display:none;">
     <div class="music-config-header">
-      <button class="back-btn" onclick="hideMultiroomMusicConfigurator()">&lt; BACK</button>
+      <button class="back-btn" onclick="backToSystemSelection()">&lt; BACK</button>
       <h1>Multiroom Music Systems Configuration</h1>
       <p>
-        Simply select the rooms below that you would like to add a music system, or pre wire for a future music system, in to. Do not include any rooms you want to add a cinema system in to as these will be specified in the <a href="#">Cinema and Media Room Systems</a> section
+        Select the rooms below you’d like to add a music system or prewire for a future music system. (Do not include rooms you want to add a cinema system to.)
       </p>
       <a class="more-info-link" href="#">MORE INFO &gt;</a>
     </div>
     <div class="music-config-content">
       <h2>Select rooms to configure</h2>
-      <p>Click on the rooms you would like to add music to and then click “I’m happy, configure these rooms”</p>
+      <p>Click the rooms you would like, then “Configure these rooms”.</p>
       <div class="music-room-buttons" id="room-selection-list"></div>
       <button class="music-config-cta" id="to-step-2">I’m happy, Configure these rooms &rarr;</button>
     </div>
@@ -39,17 +75,17 @@
       <button class="back-btn" id="back-to-step-1">&lt; BACK</button>
       <h1>Multiroom Music Systems Configuration</h1>
       <p>
-        Simply click on the rooms below to configure the music system you would like in each room
+        Click on the rooms below to configure the music system you would like in each room.
       </p>
       <a class="more-info-link" href="#">MORE INFO &gt;</a>
     </div>
     <div class="music-config-content">
       <h2>Configure rooms</h2>
-      <p>Simply click on the room to configure it.</p>
+      <p>Click on a room to configure it.</p>
       <div class="room-list" id="configured-room-list"></div>
       <button class="add-room" id="add-room-btn">Add new room +</button>
       <button class="next-step-cta" id="to-step-3">
-        Click here to configure another system type or finalise your system price &rarr;
+        Configure another system type or finalise system price &rarr;
       </button>
     </div>
   </div>
@@ -59,14 +95,22 @@
       <button class="back-btn" id="back-to-step-2">&lt; BACK</button>
       <h1>Multiroom Music Systems Configuration</h1>
       <p>
-        Simply click on the rooms below to configure the music system you would like in each room
+        Click on the rooms below to configure the music system you would like in each room.
       </p>
       <a class="more-info-link" href="#">MORE INFO &gt;</a>
     </div>
     <div class="music-config-content">
       <h2>Configure rooms</h2>
-      <p>Simply click on the room to configure it.</p>
+      <p>Click on the room to configure it.</p>
       <div class="room-list" id="expanded-room-config"></div>
+    </div>
+  </div>
+
+  <div id="final-step" style="display:none;">
+    <div class="config-card">
+      <h2>Thank you!</h2>
+      <p>Your configuration has been submitted. We’ll contact you soon.</p>
+      <button class="primary-btn" onclick="restartConfigurator()">Start Over</button>
     </div>
   </div>
 
