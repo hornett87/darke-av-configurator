@@ -10,10 +10,13 @@
     <img src="darke-av-logo.png" alt="Darke AV Logo" style="max-width:200px; margin-bottom: 1em;">
     <h1>Darke AV Configurator</h1>
   </header>
+
   <form id="smart-home-options">
-    <!-- Sections will be loaded here by form.js -->
+    <!-- Static specialty sections will be loaded here by form.js -->
+    <div id="dynamic-rooms-container"></div>
+    <button type="button" id="add-room-btn" style="margin:1em 0;">+ Add Room</button>
+    <button type="submit" style="margin-top:2em; font-size:1.2em;">Submit</button>
   </form>
-  <button type="submit" form="smart-home-options" style="margin-top:2em; font-size:1.2em;">Submit</button>
 
   <script src="form.js"></script>
 </body>
