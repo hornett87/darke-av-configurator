@@ -1,55 +1,724 @@
-<!-- Multiroom Music Systems - Step 1: Room Selection -->
-<div id="music-step-1" class="music-config-section">
-  <div class="music-config-header">
-    <button class="back-btn" style="display:none;">&lt; BACK</button>
-    <h1>Multiroom Music Systems Configuration</h1>
-    <p>
-      Simply select the rooms below that you would like to add a music system, or pre wire for a future music system, in to. Do not include any rooms you want to add a cinema system in to as these will be specified in the <a href="#">Cinema and Media Room Systems</a> section
-    </p>
-    <a class="more-info-link" href="#">MORE INFO &gt;</a>
-  </div>
-  <div class="music-config-content">
-    <h2>Select rooms to configure</h2>
-    <p>Click on the rooms you would like to add music to and then click “I’m happy, configure these rooms”</p>
-    <div class="music-room-buttons" id="room-selection-list"></div>
-    <button class="music-config-cta" id="to-step-2">I’m happy, Configure these rooms &rarr;</button>
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Darke AV Configurator — Multiroom Music Systems</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    :root {
+      --charcoal-black: #0D0D0D;
+      --slate-grey: #708090;
+      --ice-silver: #B0B0B0;
+      --lime-olive: #B7C507;
+      --electric-teal: #00B4B9;
+      --soft-white: #F5F5F5;
+      --background-main: #181818;
+      --background-section: #252525;
+      --background-card: #fff;
+      --text-main: #222;
+      --text-secondary: #708090;
+      --highlight: #B7C507;
+      --accent: #00B4B9;
+    }
+    body {
+      background: var(--background-main);
+      color: var(--text-main);
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      min-height: 100vh;
+    }
+    /* Main Menu */
+    #main-system-selection {
+      background: var(--background-section);
+      color: var(--soft-white);
+      padding: 2rem;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .system-card {
+      background: var(--highlight);
+      color: var(--charcoal-black);
+      border-radius: 20px;
+      padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+      min-width: 340px;
+      min-height: 180px;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .system-card button {
+      background: var(--accent);
+      color: var(--soft-white);
+      border: none;
+      border-radius: 40px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      padding: 1.1rem 2.5rem;
+      margin-top: 1.2rem;
+      cursor: pointer;
+      transition: background .2s, color .2s;
+    }
+    .system-card button:hover {
+      background: var(--charcoal-black);
+      color: var(--highlight);
+    }
 
-<!-- Multiroom Music Systems - Step 2: Room List -->
-<div id="music-step-2" class="music-config-section" style="display:none;">
-  <div class="music-config-header">
-    <button class="back-btn" id="back-to-step-1">&lt; BACK</button>
-    <h1>Multiroom Music Systems Configuration</h1>
-    <p>
-      Simply click on the rooms below to configure the music system you would like in each room
-    </p>
-    <a class="more-info-link" href="#">MORE INFO &gt;</a>
+    /* Multiroom Configurator Styles */
+    .music-config-header {
+      background: var(--accent);
+      color: var(--soft-white);
+      padding: 2.5rem 2rem 2rem 2rem;
+      border-radius: 0 0 32px 32px;
+      text-align: left;
+      position: relative;
+    }
+    .music-config-header h1 {
+      font-size: 2.6rem;
+      margin: 0 0 1.2rem 0;
+      font-weight: bold;
+      line-height: 1.1;
+      letter-spacing: -1px;
+    }
+    .music-config-header p {
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+      color: var(--soft-white);
+      max-width: 700px;
+    }
+    .music-config-header a {
+      color: var(--soft-white);
+      text-decoration: underline;
+      font-weight: bold;
+    }
+    .music-config-header .more-info-link {
+      color: var(--highlight);
+      display: inline-block;
+      margin-top: 1.2rem;
+      font-size: 1rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .back-btn {
+      background: transparent;
+      border: 2px solid var(--soft-white);
+      color: var(--soft-white);
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 0.4rem 1.2rem;
+      margin-bottom: 2rem;
+      cursor: pointer;
+      position: absolute;
+      left: 2rem;
+      top: 2rem;
+      z-index: 2;
+    }
+    .music-config-content {
+      background: var(--background-card);
+      border-radius: 0 0 16px 16px;
+      margin-top: 0;
+      padding: 2.5rem 2rem 2rem 2rem;
+      color: var(--charcoal-black);
+    }
+    .music-config-content h2 {
+      font-size: 2rem;
+      color: var(--accent);
+      font-weight: bold;
+      margin: 0 0 0.5rem 0;
+    }
+    .music-config-content p {
+      font-size: 1.1rem;
+      color: var(--slate-grey);
+      margin-bottom: 2rem;
+    }
+    .music-room-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    .room-btn {
+      background: var(--accent);
+      color: var(--soft-white);
+      border: none;
+      border-radius: 8px;
+      min-width: 220px;
+      font-size: 1.18rem;
+      font-weight: bold;
+      padding: 1.2rem 0;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(0,180,185,0.05);
+    }
+    .room-btn.selected, .room-btn:active {
+      background: var(--highlight);
+      color: var(--charcoal-black);
+      outline: 3px solid var(--highlight);
+      outline-offset: 2px;
+    }
+    .room-btn:not(.selected):hover {
+      background: var(--lime-olive);
+      color: var(--charcoal-black);
+    }
+    .music-config-cta {
+      background: var(--highlight);
+      color: var(--charcoal-black);
+      border: none;
+      border-radius: 40px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      padding: 1.1rem 2.5rem;
+      margin-top: 1.3rem;
+      cursor: pointer;
+      float: right;
+      transition: background .2s, color .2s;
+    }
+    .music-config-cta:hover {
+      background: var(--accent);
+      color: var(--soft-white);
+    }
+    .room-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2.2rem;
+    }
+    .room-card {
+      display: flex;
+      align-items: center;
+      background: #F2F4F7;
+      border-radius: 12px;
+      padding: 1.2rem 1.2rem;
+      box-shadow: 0 2px 8px rgba(0,180,185,0.04);
+      position: relative;
+      font-size: 1.18rem;
+      font-weight: bold;
+      color: var(--charcoal-black);
+      gap: 1rem;
+    }
+    .room-icon {
+      font-size: 1.8rem;
+      margin-right: 0.7rem;
+    }
+    .room-name {
+      flex: 1 1 0;
+      font-weight: bold;
+      color: var(--charcoal-black);
+    }
+    .room-remove {
+      background: none;
+      border: none;
+      color: #FF3B3B;
+      font-weight: bold;
+      font-size: 1rem;
+      margin-right: 1.1rem;
+      cursor: pointer;
+      transition: text-decoration .2s;
+    }
+    .room-remove:hover {
+      text-decoration: underline;
+    }
+    .room-configure {
+      color: var(--accent);
+      font-size: 1rem;
+      font-weight: bold;
+      text-decoration: underline;
+      margin-right: 1.1rem;
+      cursor: pointer;
+    }
+    .room-configure:hover {
+      color: var(--highlight);
+    }
+    .room-expand, .room-collapse {
+      background: var(--soft-white);
+      border: 2px solid var(--ice-silver);
+      color: var(--slate-grey);
+      border-radius: 50%;
+      width: 34px;
+      height: 34px;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border .2s, color .2s;
+    }
+    .add-room {
+      width: 100%;
+      background: var(--background-card);
+      border: 2px solid var(--ice-silver);
+      color: var(--charcoal-black);
+      font-weight: bold;
+      padding: 1.1rem 0;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      margin: 1.2rem 0 0.7rem 0;
+      cursor: pointer;
+      transition: border-color .2s, background .2s;
+    }
+    .add-room:hover {
+      border-color: var(--accent);
+      background: var(--soft-white);
+    }
+    .next-step-cta {
+      width: 100%;
+      background: #FFB6A3;
+      color: var(--charcoal-black);
+      border: none;
+      border-radius: 40px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      padding: 1.1rem 0;
+      margin-top: 2.2rem;
+      cursor: pointer;
+      transition: background .2s, color .2s;
+      text-align: center;
+      box-shadow: none;
+    }
+    .next-step-cta:hover {
+      background: var(--accent);
+      color: var(--soft-white);
+    }
+    /* Expanded Room Config */
+    .room-card.expanded {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 1.5rem 1rem 1.5rem 1rem;
+    }
+    .room-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.2rem;
+    }
+    .speaker-options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.1rem;
+      margin-bottom: 1.3rem;
+    }
+    .speaker-option {
+      background: var(--background-card);
+      border-radius: 9px;
+      padding: 1.1rem;
+      box-shadow: 0 2px 6px rgba(0,180,185,0.03);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .option-title {
+      font-weight: bold;
+      color: var(--charcoal-black);
+      margin-bottom: 0.4rem;
+    }
+    .option-desc {
+      font-size: 0.97rem;
+      color: var(--slate-grey);
+      margin-bottom: 1rem;
+    }
+    .option-select {
+      align-self: flex-end;
+      background: var(--background-card);
+      color: var(--accent);
+      border: 2px solid var(--ice-silver);
+      border-radius: 20px;
+      font-weight: bold;
+      padding: 0.5rem 1.2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background .2s, color .2s, border .2s;
+    }
+    .option-select.selected,
+    .option-select:active {
+      background: var(--accent);
+      color: var(--soft-white);
+      border-color: var(--accent);
+    }
+    .option-select:not(.selected):hover {
+      background: var(--highlight);
+      color: var(--charcoal-black);
+    }
+    .additional-options {
+      margin-top: 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+    .additional-title {
+      font-weight: bold;
+      color: var(--charcoal-black);
+      margin-bottom: 0.2rem;
+    }
+    .additional-desc {
+      font-size: 0.97rem;
+      color: var(--slate-grey);
+      margin-bottom: 0.7rem;
+    }
+    .toggle-2nd-pair {
+      display: flex;
+      align-items: center;
+      background: #E6FCFB;
+      border: none;
+      border-radius: 7px;
+      padding: 0.85rem 1.4rem;
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background .2s, color .2s;
+    }
+    .toggle-2nd-pair.selected {
+      background: var(--accent);
+      color: var(--soft-white);
+    }
+    .toggle-dot {
+      width: 22px;
+      height: 22px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-right: 1rem;
+      display: inline-block;
+    }
+    .toggle-2nd-pair.selected .toggle-dot {
+      background: var(--soft-white);
+    }
+    .proceed-room {
+      background: #FFB6A3;
+      color: var(--charcoal-black);
+      border: none;
+      border-radius: 40px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      padding: 1.1rem 2.5rem;
+      margin-top: 1.5rem;
+      cursor: pointer;
+      float: right;
+      transition: background .2s, color .2s;
+    }
+    .proceed-room:hover {
+      background: var(--accent);
+      color: var(--soft-white);
+    }
+    @media (max-width: 700px) {
+      .music-config-header,
+      .music-config-content {
+        padding: 1.2rem 1rem;
+      }
+      .music-config-header h1 {
+        font-size: 1.6rem;
+      }
+      .music-room-buttons {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .room-btn {
+        min-width: 90%;
+        font-size: 1rem;
+      }
+      .room-card {
+        font-size: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.7rem;
+      }
+      .speaker-options-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+      }
+      .add-room,
+      .next-step-cta {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Main system selection -->
+  <div id="main-system-selection">
+    <div class="system-card">
+      Multiroom Music Systems
+      <button onclick="showMultiroomMusicConfigurator()">CONFIGURE</button>
+    </div>
   </div>
-  <div class="music-config-content">
-    <h2>Configure rooms</h2>
-    <p>Simply click on the room to configure it.</p>
-    <div class="room-list" id="configured-room-list"></div>
-    <button class="add-room" id="add-room-btn">Add new room +</button>
-    <button class="next-step-cta" id="to-step-3">
-      Click here to configure another system type or finalise your system price &rarr;
-    </button>
-  </div>
-</div>
 
-<!-- Multiroom Music Systems - Step 3: Room Configuration (expanded room) -->
-<div id="music-step-3" class="music-config-section" style="display:none;">
-  <div class="music-config-header">
-    <button class="back-btn" id="back-to-step-2">&lt; BACK</button>
-    <h1>Multiroom Music Systems Configuration</h1>
-    <p>
-      Simply click on the rooms below to configure the music system you would like in each room
-    </p>
-    <a class="more-info-link" href="#">MORE INFO &gt;</a>
+  <!-- Multiroom Music Systems - Step 1: Room Selection -->
+  <div id="music-step-1" class="music-config-section" style="display:none;">
+    <div class="music-config-header">
+      <button class="back-btn" onclick="hideMultiroomMusicConfigurator()">&lt; BACK</button>
+      <h1>Multiroom Music Systems Configuration</h1>
+      <p>
+        Simply select the rooms below that you would like to add a music system, or pre wire for a future music system, in to. Do not include any rooms you want to add a cinema system in to as these will be specified in the <a href="#">Cinema and Media Room Systems</a> section
+      </p>
+      <a class="more-info-link" href="#">MORE INFO &gt;</a>
+    </div>
+    <div class="music-config-content">
+      <h2>Select rooms to configure</h2>
+      <p>Click on the rooms you would like to add music to and then click “I’m happy, configure these rooms”</p>
+      <div class="music-room-buttons" id="room-selection-list"></div>
+      <button class="music-config-cta" id="to-step-2">I’m happy, Configure these rooms &rarr;</button>
+    </div>
   </div>
-  <div class="music-config-content">
-    <h2>Configure rooms</h2>
-    <p>Simply click on the room to configure it.</p>
-    <div class="room-list" id="expanded-room-config"></div>
+
+  <!-- Multiroom Music Systems - Step 2: Room List -->
+  <div id="music-step-2" class="music-config-section" style="display:none;">
+    <div class="music-config-header">
+      <button class="back-btn" id="back-to-step-1">&lt; BACK</button>
+      <h1>Multiroom Music Systems Configuration</h1>
+      <p>
+        Simply click on the rooms below to configure the music system you would like in each room
+      </p>
+      <a class="more-info-link" href="#">MORE INFO &gt;</a>
+    </div>
+    <div class="music-config-content">
+      <h2>Configure rooms</h2>
+      <p>Simply click on the room to configure it.</p>
+      <div class="room-list" id="configured-room-list"></div>
+      <button class="add-room" id="add-room-btn">Add new room +</button>
+      <button class="next-step-cta" id="to-step-3">
+        Click here to configure another system type or finalise your system price &rarr;
+      </button>
+    </div>
   </div>
-</div>
+
+  <!-- Multiroom Music Systems - Step 3: Room Configuration (expanded room) -->
+  <div id="music-step-3" class="music-config-section" style="display:none;">
+    <div class="music-config-header">
+      <button class="back-btn" id="back-to-step-2">&lt; BACK</button>
+      <h1>Multiroom Music Systems Configuration</h1>
+      <p>
+        Simply click on the rooms below to configure the music system you would like in each room
+      </p>
+      <a class="more-info-link" href="#">MORE INFO &gt;</a>
+    </div>
+    <div class="music-config-content">
+      <h2>Configure rooms</h2>
+      <p>Simply click on the room to configure it.</p>
+      <div class="room-list" id="expanded-room-config"></div>
+    </div>
+  </div>
+
+  <script>
+    // --- Tab/section switching ---
+    function showMultiroomMusicConfigurator() {
+      document.getElementById("main-system-selection").style.display = "none";
+      document.getElementById("music-step-1").style.display = "";
+      document.getElementById("music-step-2").style.display = "none";
+      document.getElementById("music-step-3").style.display = "none";
+      resetConfigurator();
+    }
+    function hideMultiroomMusicConfigurator() {
+      document.getElementById("main-system-selection").style.display = "";
+      document.getElementById("music-step-1").style.display = "none";
+      document.getElementById("music-step-2").style.display = "none";
+      document.getElementById("music-step-3").style.display = "none";
+    }
+    function showStep(n) {
+      document.getElementById('music-step-1').style.display = n === 1 ? '' : 'none';
+      document.getElementById('music-step-2').style.display = n === 2 ? '' : 'none';
+      document.getElementById('music-step-3').style.display = n === 3 ? '' : 'none';
+    }
+
+    // --- Configurator state ---
+    const allRooms = ["Hall", "Lounge", "Kitchen", "Bedroom", "Dining Room"];
+    let selectedRooms = [];
+    let roomOptions = {}; // { roomName: { option: '', extraPair: false } }
+    let expandedRoom = null;
+
+    function resetConfigurator() {
+      selectedRooms = [];
+      roomOptions = {};
+      expandedRoom = null;
+      renderRoomSelection();
+    }
+
+    // --- STEP 1: Room Selection ---
+    function renderRoomSelection() {
+      const roomSelectionList = document.getElementById('room-selection-list');
+      roomSelectionList.innerHTML = '';
+      allRooms.forEach(room => {
+        const btn = document.createElement("button");
+        btn.textContent = room;
+        btn.className = "room-btn";
+        btn.classList.toggle("selected", selectedRooms.includes(room));
+        btn.onclick = () => {
+          btn.classList.toggle("selected");
+          if (btn.classList.contains("selected")) {
+            if (!selectedRooms.includes(room)) selectedRooms.push(room);
+          } else {
+            selectedRooms = selectedRooms.filter(r => r !== room);
+          }
+        };
+        roomSelectionList.appendChild(btn);
+      });
+    }
+    document.getElementById('to-step-2').onclick = () => {
+      if (selectedRooms.length > 0) {
+        showStep(2);
+        renderRoomList();
+      } else {
+        alert("Please select at least one room.");
+      }
+    };
+
+    // --- STEP 2: Room List ---
+    document.getElementById('back-to-step-1').onclick = () => showStep(1);
+    function renderRoomList() {
+      const roomList = document.getElementById('configured-room-list');
+      roomList.innerHTML = "";
+      selectedRooms.forEach(room => {
+        const div = document.createElement("div");
+        div.className = "room-card";
+        div.innerHTML = `
+          <span class="room-icon">🛋️</span>
+          <span class="room-name">${room}</span>
+          <button class="room-remove">REMOVE ROOM</button>
+          <a href="#" class="room-configure">CONFIGURE</a>
+          <button class="room-expand">+</button>
+        `;
+        // Remove
+        div.querySelector(".room-remove").onclick = () => {
+          selectedRooms = selectedRooms.filter(r => r !== room);
+          renderRoomList();
+        };
+        // Expand room
+        div.querySelector(".room-expand").onclick = () => {
+          expandedRoom = room;
+          showStep(3);
+          renderRoomExpanded();
+        };
+        // Configure (same as expand for now)
+        div.querySelector(".room-configure").onclick = e => {
+          e.preventDefault();
+          expandedRoom = room;
+          showStep(3);
+          renderRoomExpanded();
+        };
+        roomList.appendChild(div);
+      });
+    }
+    document.getElementById('add-room-btn').onclick = () => {
+      const name = prompt("Enter new room name:");
+      if (name && !selectedRooms.includes(name)) {
+        selectedRooms.push(name);
+        renderRoomList();
+      }
+    };
+    document.getElementById('to-step-3').onclick = () => {
+      alert("Proceeding to next step with rooms: " + selectedRooms.join(", "));
+    };
+
+    // --- STEP 3: Room Expanded Config ---
+    document.getElementById('back-to-step-2').onclick = () => showStep(2);
+    function renderRoomExpanded() {
+      const container = document.getElementById('expanded-room-config');
+      container.innerHTML = "";
+      if (!expandedRoom) return;
+      const config = roomOptions[expandedRoom] || {};
+      // Card container
+      const card = document.createElement("div");
+      card.className = "room-card expanded";
+      // Header
+      const header = document.createElement("div");
+      header.className = "room-header";
+      header.innerHTML = `
+        <span class="room-icon">🛋️</span>
+        <span class="room-name">${expandedRoom}</span>
+        <button class="room-remove">REMOVE ROOM</button>
+        <a href="#" class="room-configure">CONFIGURE</a>
+        <button class="room-collapse">–</button>
+      `;
+      // Remove/collapse logic
+      header.querySelector(".room-remove").onclick = () => {
+        selectedRooms = selectedRooms.filter(r => r !== expandedRoom);
+        expandedRoom = null;
+        showStep(2);
+        renderRoomList();
+      };
+      header.querySelector(".room-configure").onclick = e => e.preventDefault();
+      header.querySelector(".room-collapse").onclick = () => {
+        expandedRoom = null;
+        showStep(2);
+        renderRoomList();
+      };
+      card.appendChild(header);
+      // Options grid
+      const speakerOptions = [
+        {
+          name: "Pre Wired Only",
+          desc: "If you want to future proof your home adding speaker cabling for future in ceiling speakers will allow the speakers and music streamer to be added at a later date without mess or disruption."
+        },
+        {
+          name: "Bronze Quality",
+          desc: "Sonance 6\" Bronze level in ceiling speakers provide great cost effective audio quality for small and medium sized rooms."
+        },
+        {
+          name: "Silver Quality",
+          desc: "Sonance 6\" Silver level in ceiling speakers deliver superb detailed and powerful sound."
+        },
+        {
+          name: "Gold Quality",
+          desc: "The Sonance 8\" Gold reference in ceiling speakers provide genuine reference quality audio for the best discrete in room sound possible."
+        },
+        {
+          name: "External (Waterproof) Speakers",
+          desc: "Add a pair of external speakers to outdoor areas. The Sonance Mariner speakers can cope with all weathers and sound superb in the open. Play music for any outdoor occasion."
+        }
+      ];
+      const optionsGrid = document.createElement("div");
+      optionsGrid.className = "speaker-options-grid";
+      speakerOptions.forEach(opt => {
+        const optDiv = document.createElement("div");
+        optDiv.className = "speaker-option";
+        optDiv.innerHTML = `
+          <div class="option-title">${opt.name}</div>
+          <div class="option-desc">${opt.desc}</div>
+          <button class="option-select${config.option === opt.name ? " selected" : ""}">Select +</button>
+        `;
+        optDiv.querySelector(".option-select").onclick = function() {
+          config.option = opt.name;
+          roomOptions[expandedRoom] = { ...config };
+          renderRoomExpanded();
+        };
+        optionsGrid.appendChild(optDiv);
+      });
+      card.appendChild(optionsGrid);
+      // Additional options
+      const addOptsDiv = document.createElement("div");
+      addOptsDiv.className = "additional-options";
+      addOptsDiv.innerHTML = `
+        <div class="additional-title">Additional Options</div>
+        <div class="additional-desc">
+          For large or irregular spaces add a second pair of speakers to distribute the audio throughout the space evenly.
+        </div>
+        <button class="toggle-2nd-pair${config.extraPair ? " selected" : ""}">
+          <span class="toggle-dot"></span>
+          Add a 2nd pair of speakers
+        </button>
+      `;
+      addOptsDiv.querySelector(".toggle-2nd-pair").onclick = function() {
+        config.extraPair = !config.extraPair;
+        roomOptions[expandedRoom] = { ...config };
+        renderRoomExpanded();
+      };
+      card.appendChild(addOptsDiv);
+      // Proceed to next room
+      const proceedBtn = document.createElement("button");
+      proceedBtn.className = "proceed-room";
+      proceedBtn.textContent = "Proceed to next room →";
+      proceedBtn.onclick = () => {
+        expandedRoom = null;
+        showStep(2);
+        renderRoomList();
+      };
+      card.appendChild(proceedBtn);
+      container.appendChild(card);
+    }
+
+    // --- Initialize on load ---
+    renderRoomSelection();
+  </script>
+</body>
+</html>
