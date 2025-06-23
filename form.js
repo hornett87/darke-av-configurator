@@ -1,37 +1,36 @@
-// You can make these HTML blocks as detailed as you want—add all the options for each area.
+// Cinema, Pool, Gym, External, and Standard Room option HTML (abbreviated for demo; expand as needed)
 const cinemaHTML = `
 <fieldset>
   <legend>Cinema Room Options</legend>
-  <label><input type="checkbox" name="cinema_audio" value="Multi-Room Audio"> Multi-Room Audio</label>
-  <label><input type="checkbox" name="cinema_audio" value="Standalone"> Standalone</label>
+  <label><input type="checkbox" name="cinema_acoustic[]" value="Basic Soundproofing"> Basic Soundproofing</label>
+  <label><input type="checkbox" name="cinema_acoustic[]" value="Essential Panels"> Essential Panels</label>
   <!-- Add more cinema options here -->
 </fieldset>
 `;
 const poolHTML = `
 <fieldset>
   <legend>Pool Options</legend>
-  <label><input type="checkbox" name="pool_audio" value="Multi-Room Audio"> Multi-Room Audio</label>
-  <label><input type="checkbox" name="pool_audio" value="Standalone"> Standalone</label>
+  <label><input type="checkbox" name="pool_audio[]" value="Multi-Room Audio"> Multi-Room Audio</label>
+  <label><input type="checkbox" name="pool_audio[]" value="Standalone"> Standalone</label>
   <!-- Add more pool options here -->
 </fieldset>
 `;
 const gymHTML = `
 <fieldset>
   <legend>Gym Options</legend>
-  <label><input type="checkbox" name="gym_audio" value="Multi-Room Audio"> Multi-Room Audio</label>
-  <label><input type="checkbox" name="gym_audio" value="Standalone"> Standalone</label>
+  <label><input type="checkbox" name="gym_audio[]" value="Multi-Room Audio"> Multi-Room Audio</label>
+  <label><input type="checkbox" name="gym_audio[]" value="Standalone"> Standalone</label>
   <!-- Add more gym options here -->
 </fieldset>
 `;
 const externalHTML = `
 <fieldset>
   <legend>External Area Options</legend>
-  <label><input type="checkbox" name="external_audio" value="Multi-Room Audio"> Multi-Room Audio</label>
-  <label><input type="checkbox" name="external_audio" value="Standalone"> Standalone</label>
+  <label><input type="checkbox" name="external_audio[]" value="Multi-Room Audio"> Multi-Room Audio</label>
+  <label><input type="checkbox" name="external_audio[]" value="Standalone"> Standalone</label>
   <!-- Add more external area options here -->
 </fieldset>
 `;
-// A function to generate a new standard room block
 const standardRoomHTML = (idx = 1) => `
 <div class="standard-room-block">
   <fieldset>
@@ -66,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const fieldsetDiv = document.getElementById(`${area}-fieldset`);
       if (this.checked) {
         fieldsetDiv.classList.add('active');
-        // Insert HTML if not already
         if (fieldsetDiv.innerHTML.trim() === '' && area !== "standard") {
           if (area === "cinema") fieldsetDiv.innerHTML = cinemaHTML;
           if (area === "pool") fieldsetDiv.innerHTML = poolHTML;
@@ -102,11 +100,10 @@ document.addEventListener('DOMContentLoaded', () => {
   standardRoomBlocks.addEventListener('click', function(e) {
     if (e.target.classList.contains('remove-standard-room-btn')) {
       e.target.closest('.standard-room-block').remove();
-      // Optionally, decrement count or re-label legends here if you want
     }
   });
 
-  // Optional: Show results on submit
+  // Show results on submit
   document.getElementById('smart-home-options').addEventListener('submit', function(e) {
     e.preventDefault();
     const data = new FormData(this);
@@ -115,11 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
       output += `<li><strong>${key}:</strong> ${value}</li>`;
     }
     output += '</ul>';
-    document.querySelectorAll('.results-output').forEach(el => el.remove());
-    const div = document.createElement('div');
-    div.className = 'results-output';
-    div.innerHTML = output;
-    this.parentNode.insertBefore(div, this.nextSibling);
-    window.scrollTo({top: div.offsetTop, behavior: "smooth"});
+    document.getElementById('results').innerHTML = output;
+    window.scrollTo({top: document.getElementById('results').offsetTop, behavior: "smooth"});
   });
 });
