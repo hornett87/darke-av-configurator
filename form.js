@@ -1,36 +1,52 @@
-const EMAILJS_USER_ID = 'n2cZJMW7IUEbEMihy';
-const EMAILJS_SERVICE_ID = 'service_fs20m3c';
-const EMAILJS_TEMPLATE_ID = 'template_uhk2v2h';
+// List your section HTML files here in the order you want them to appear.
+// For multiple standard rooms, you can duplicate 'standard-room-section.html' with different legends if you wish.
+const sections = [
+  'cinema-section.html',
+  'pool-section.html',
+  'gym-section.html',
+  'external-area-section.html',
+  // Add more standard rooms as needed:
+  'standard-room-section.html', // e.g. Living Room
+  // 'standard-room-section.html', // e.g. Bedroom 1
+  // 'standard-room-section.html', // etc.
+];
 
-emailjs.init(EMAILJS_USER_ID);
-
-document.getElementById('configForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const form = e.target;
-  const statusDiv = document.getElementById('status');
-
-  // Gather form data
-  const formData = {
-    name: form.name.value,
-    email: form.email.value,
-    phone: form.phone.value,
-    rooms: Array.from(form.querySelectorAll('input[name="rooms"]:checked')).map(cb => cb.value).join(', '),
-    devices: Array.from(form.devices.selectedOptions).map(opt => opt.value).join(', '),
-    automation: form.automation.value,
-    comments: form.comments.value
-  };
-
-  statusDiv.textContent = "Sending...";
-  statusDiv.style.color = "#c3e478";
-
-  // Send email using EmailJS
-  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formData)
-    .then(function(response) {
-      statusDiv.textContent = 'Thank you! Your configuration has been sent.';
-      statusDiv.style.color = "#c3e478";
-      form.reset();
-    }, function(error) {
-      statusDiv.textContent = 'Error sending form. Please try again later.';
-      statusDiv.style.color = "#e47878";
+window.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('smart-home-options');
+  Promise.all(
+    sections.map(section =>
+      fetch(section).then(res => res.text())
+    )
+  ).then(htmlBlocks => {
+    htmlBlocks.forEach((block, idx) => {
+      // Optionally, replace the legend for each standard room
+      if (sections[idx] === 'standard-room-section.html') {
+        // For example, auto-number standard rooms (Living Room, Bedroom 1, etc.)
+        let roomName = 'Standard Room';
+        if (idx === 4) roomName = 'Living Room';
+        if (idx === 5) roomName = 'Bedroom 1';
+        if (idx === 6) roomName = 'Bedroom 2';
+        block = block.replace('<legend>Standard Room (e.g. Living, Kitchen, Bedroom, Dining, etc.)</legend>', `<legend>${roomName}</legend>`);
+      }
+      form.insertAdjacentHTML('beforeend', block);
     });
+  });
+
+  // Optional: Display selected options on submit
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    let output = '<h2>Selected Options:</h2><ul>';
+    for (const [key, value] of data.entries()) {
+      output += `<li><strong>${key}:</strong> ${value}</li>`;
+    }
+    output += '</ul>';
+    // Remove any previous output
+    document.querySelectorAll('.results-output').forEach(el => el.remove());
+    const div = document.createElement('div');
+    div.className = 'results-output';
+    div.innerHTML = output;
+    form.parentNode.insertBefore(div, form.nextSibling);
+    window.scrollTo({top: div.offsetTop, behavior: "smooth"});
+  });
 });
