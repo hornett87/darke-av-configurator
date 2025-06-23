@@ -1,36 +1,58 @@
-// List your section HTML files here in the order you want them to appear.
-// For multiple standard rooms, you can duplicate 'standard-room-section.html' with different legends if you wish.
+// List your static specialty section files here
 const sections = [
   'cinema-section.html',
   'pool-section.html',
   'gym-section.html',
-  'external-area-section.html',
-  // Add more standard rooms as needed:
-  'standard-room-section.html', // e.g. Living Room
-  // 'standard-room-section.html', // e.g. Bedroom 1
-  // 'standard-room-section.html', // etc.
+  'external-area-section.html'
 ];
 
 window.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('smart-home-options');
+  const dynamicRoomsContainer = document.getElementById('dynamic-rooms-container');
+  const addRoomBtn = document.getElementById('add-room-btn');
+
+  // Load specialty (fixed) sections
   Promise.all(
     sections.map(section =>
       fetch(section).then(res => res.text())
     )
   ).then(htmlBlocks => {
-    htmlBlocks.forEach((block, idx) => {
-      // Optionally, replace the legend for each standard room
-      if (sections[idx] === 'standard-room-section.html') {
-        // For example, auto-number standard rooms (Living Room, Bedroom 1, etc.)
-        let roomName = 'Standard Room';
-        if (idx === 4) roomName = 'Living Room';
-        if (idx === 5) roomName = 'Bedroom 1';
-        if (idx === 6) roomName = 'Bedroom 2';
-        block = block.replace('<legend>Standard Room (e.g. Living, Kitchen, Bedroom, Dining, etc.)</legend>', `<legend>${roomName}</legend>`);
-      }
-      form.insertAdjacentHTML('beforeend', block);
+    htmlBlocks.forEach(block => {
+      form.insertAdjacentHTML('afterbegin', block);
     });
   });
+
+  // Add the first room section by default
+  addRoomSection();
+
+  addRoomBtn.addEventListener('click', addRoomSection);
+
+  function addRoomSection() {
+    fetch('standard-room-section.html')
+      .then(res => res.text())
+      .then(block => {
+        // Ensure every room fieldset has a unique legend/title
+        const roomNumber = dynamicRoomsContainer.children.length + 1;
+        block = block.replace(
+          '<legend>Room Options</legend>',
+          `<legend>Room ${roomNumber} Options</legend>`
+        );
+        // Create a wrapper div so we can support easy removal if needed
+        const div = document.createElement('div');
+        div.className = 'standard-room-block';
+        div.innerHTML = block;
+        // Optionally add a remove button for each room except the first
+        if (roomNumber > 1) {
+          const removeBtn = document.createElement('button');
+          removeBtn.type = 'button';
+          removeBtn.textContent = 'Remove Room';
+          removeBtn.className = 'remove-room-btn';
+          removeBtn.onclick = () => div.remove();
+          div.querySelector('fieldset').appendChild(removeBtn);
+        }
+        dynamicRoomsContainer.appendChild(div);
+      });
+  }
 
   // Optional: Display selected options on submit
   form.addEventListener('submit', function(e) {
