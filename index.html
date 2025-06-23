@@ -2,37 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Smart Home Options Form</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 2em; }
-    fieldset { margin-bottom: 2em; padding: 1em; }
-    legend { font-weight: bold; }
-    label { display: block; margin: 0.2em 0 0.2em 1em; }
-    button { font-size: 1.2em; padding: 0.5em 1.5em; }
-  </style>
+  <title>Darke AV Configurator</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Smart Home Options</h1>
+  <header>
+    <img src="darke-av-logo.png" alt="Darke AV Logo" style="max-width:200px; margin-bottom: 1em;">
+    <h1>Darke AV Configurator</h1>
+  </header>
   <form id="smart-home-options">
-
-    <!-- Include all the fieldsets for Cinema Room, Pool, Gym, External Area, and Standard Rooms here -->
-    <!-- ... Copy the full code from the previous message here ... -->
-    <!-- (For brevity, only the Cinema Room example is included below. Paste all fieldsets as needed.) -->
-
-    <fieldset>
-      <legend>Cinema Room</legend>
-      <label><strong>Acoustic Treatment:</strong></label>
-      <label><input type="checkbox" name="cinema_acoustic" value="Essential Panels"> Essential Panels</label>
-      <label><input type="checkbox" name="cinema_acoustic" value="Full Wall Treatment"> Full Wall Treatment</label>
-      <label><input type="checkbox" name="cinema_acoustic" value="Diffusion Panels"> Diffusion Panels</label>
-      <label><input type="checkbox" name="cinema_acoustic" value="Basic Soundproofing – door seals and carpet underlay"> Basic Soundproofing – door seals and carpet underlay</label>
-      <label><input type="checkbox" name="cinema_acoustic" value="Advanced Isolation – upgraded isolation for walls, floor, and door"> Advanced Isolation – upgraded isolation for walls, floor, and door</label>
-      <!-- ... (continue with the rest of the fieldsets as provided earlier) ... -->
-    </fieldset>
-
-    <!-- Repeat with Pool, Gym, External Area, and Standard Room fieldsets -->
-
-    <button type="submit">Submit</button>
+    <!-- Sections will be loaded here by form.js -->
   </form>
+  <button type="submit" form="smart-home-options" style="margin-top:2em; font-size:1.2em;">Submit</button>
+
+  <script src="form.js"></script>
 </body>
 </html>
