@@ -11,6 +11,11 @@ const cinemaHTML = `
   <label><input type="checkbox" name="cinema_audio[]" value="Star Ceiling"> Star Ceiling</label>
   <label><input type="checkbox" name="cinema_audio[]" value="Lighting Control"> Lighting Control</label>
   <label><input type="checkbox" name="cinema_audio[]" value="Control System"> Control System</label>
+  <label><input type="checkbox" name="cinema_audio[]" value="Video Sources"> Video Sources</label>
+  <label><input type="checkbox" name="cinema_audio[]" value="Streaming Services"> Streaming Services</label>
+  <label><input type="checkbox" name="cinema_audio[]" value="Games Console"> Games Console</label>
+  <label><input type="checkbox" name="cinema_audio[]" value="Disc Player (BluRay, DVD)"> Disc Player (BluRay, DVD)</label>
+  <label><input type="checkbox" name="cinema_audio[]" value="Kaleidescape"> Kaleidescape</label>
 </fieldset>
 `;
 
@@ -22,6 +27,10 @@ const poolHTML = `
   <label><input type="checkbox" name="pool_audio[]" value="Lighting Control"> Lighting Control</label>
   <label><input type="checkbox" name="pool_audio[]" value="Outdoor TV"> Outdoor TV</label>
   <label><input type="checkbox" name="pool_audio[]" value="Control System"> Control System</label>
+  <label><input type="checkbox" name="pool_audio[]" value="Heating Control"> Heating Control</label>
+  <label><input type="checkbox" name="pool_audio[]" value="Garden Speakers"> Garden Speakers</label>
+  <label><input type="checkbox" name="pool_audio[]" value="WiFi"> WiFi</label>
+  <label><input type="checkbox" name="pool_audio[]" value="Automated Pool Cover"> Automated Pool Cover</label>
 </fieldset>
 `;
 
@@ -32,6 +41,10 @@ const gymHTML = `
   <label><input type="checkbox" name="gym_audio[]" value="Wall TV"> Wall TV</label>
   <label><input type="checkbox" name="gym_audio[]" value="Lighting Control"> Lighting Control</label>
   <label><input type="checkbox" name="gym_audio[]" value="Control System"> Control System</label>
+  <label><input type="checkbox" name="gym_audio[]" value="Streaming Audio"> Streaming Audio</label>
+  <label><input type="checkbox" name="gym_audio[]" value="Bluetooth Input"> Bluetooth Input</label>
+  <label><input type="checkbox" name="gym_audio[]" value="Video Conferencing"> Video Conferencing</label>
+  <label><input type="checkbox" name="gym_audio[]" value="Climate Control"> Climate Control</label>
 </fieldset>
 `;
 
@@ -43,6 +56,10 @@ const externalHTML = `
   <label><input type="checkbox" name="external_audio[]" value="Outdoor WiFi"> Outdoor WiFi</label>
   <label><input type="checkbox" name="external_audio[]" value="Outdoor TV"> Outdoor TV</label>
   <label><input type="checkbox" name="external_audio[]" value="Control System"> Control System</label>
+  <label><input type="checkbox" name="external_audio[]" value="Gate Intercom"> Gate Intercom</label>
+  <label><input type="checkbox" name="external_audio[]" value="Security Cameras"> Security Cameras</label>
+  <label><input type="checkbox" name="external_audio[]" value="Automated Gates"> Automated Gates</label>
+  <label><input type="checkbox" name="external_audio[]" value="Irrigation Control"> Irrigation Control</label>
 </fieldset>
 `;
 
