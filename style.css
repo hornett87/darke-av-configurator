@@ -79,7 +79,7 @@ button[type="submit"]:hover {
   background: #8e3838;
 }
 
-.results-output {
+.results-output, #results {
   margin-top: 2em;
   padding: 1.2em;
   background: #e8f6ea;
