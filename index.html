@@ -9,7 +9,7 @@
   <header>
     <img src="darke-av-logo.png" alt="Darke AV Logo" style="max-width:200px; margin-bottom:1em;">
     <h1>Darke AV Configurator</h1>
-    <p style="color:#3a3a3a;">Please fill in your details and select the areas/rooms you're interested in.</p>
+    <p style="color:#3a3a3a;">Please fill in your details and add all required rooms/areas. Each room/area can have any combination of specialty features.</p>
   </header>
 
   <form id="smart-home-options">
@@ -33,23 +33,9 @@
       </label>
     </fieldset>
 
-    <fieldset>
-      <legend>Select Areas/Rooms</legend>
-      <label><input type="checkbox" class="area-toggle" data-area="cinema"> Cinema Room</label>
-      <label><input type="checkbox" class="area-toggle" data-area="pool"> Pool</label>
-      <label><input type="checkbox" class="area-toggle" data-area="gym"> Gym</label>
-      <label><input type="checkbox" class="area-toggle" data-area="external"> External Area</label>
-      <label><input type="checkbox" class="area-toggle" data-area="standard"> Standard Room(s)</label>
-    </fieldset>
+    <button type="button" id="add-room-btn" style="margin-bottom:1em;">+ Add Room/Area</button>
+    <div id="room-area-blocks"></div>
 
-    <div id="cinema-fieldset" class="area-fieldset"></div>
-    <div id="pool-fieldset" class="area-fieldset"></div>
-    <div id="gym-fieldset" class="area-fieldset"></div>
-    <div id="external-fieldset" class="area-fieldset"></div>
-    <div id="standard-fieldset" class="area-fieldset standard-room-list">
-      <button type="button" id="add-standard-room-btn" style="margin-bottom:1em;display:none;">+ Add Standard Room</button>
-      <div id="standard-room-blocks"></div>
-    </div>
     <button type="submit" style="margin-top:2em; font-size:1.2em;">Submit</button>
   </form>
   <div id="results"></div>
