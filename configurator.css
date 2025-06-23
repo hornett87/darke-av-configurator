@@ -1,0 +1,309 @@
+body {
+  background: #f3f5fa;
+  font-family: 'Montserrat', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.configurator-container {
+  margin: 2rem auto;
+  max-width: 900px;
+}
+.step-section {
+  background: #eceff3;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  padding: 2.5rem 2rem 2rem 2rem;
+  position: relative;
+}
+.step-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+.step-number {
+  color: #2787e2;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-right: 0.7rem;
+  font-family: inherit;
+  flex-shrink: 0;
+}
+.step-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #212529;
+  flex: 1;
+}
+.step-collapse {
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  margin-left: 1rem;
+  font-size: 1.3rem;
+  color: #999;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.step-info-link {
+  color: #2787e2;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  margin-bottom: 0.8rem;
+  display: inline-block;
+}
+.step-section label {
+  display: block;
+  margin: 1.1rem 0 0.3rem 0;
+  font-weight: bold;
+  color: #2787e2;
+}
+.step-section .help-text {
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.config-input,
+select {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #d0d7e6;
+  font-size: 1rem;
+  margin-bottom: 1.1rem;
+  background: #fff;
+  transition: border .2s;
+  box-sizing: border-box;
+}
+select {
+  cursor: pointer;
+}
+.config-btn-group {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.config-btn {
+  flex: 1 1 0;
+  background: #fff;
+  color: #2787e2;
+  border: 2px solid #d0d7e6;
+  border-radius: 8px;
+  padding: 1rem 0;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.config-btn.selected,
+.config-btn:active {
+  background: #2787e2;
+  color: #fff;
+  border-color: #2787e2;
+}
+.config-btn-group.inline {
+  flex-direction: row;
+}
+.config-btn-group.stacked {
+  flex-direction: column;
+}
+@media (max-width: 700px) {
+  .config-btn-group {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+}
+
+.config-row {
+  display: flex;
+  gap: 2%;
+  margin-bottom: 1rem;
+}
+.config-row > div {
+  flex: 1 1 0;
+}
+@media (max-width: 700px) {
+  .config-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.next-step-btn {
+  background: #f8937c;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #fff;
+  padding: 1.1rem 2rem;
+  margin-top: 1.3rem;
+  cursor: pointer;
+  transition: background .2s;
+  display: inline-block;
+}
+.next-step-btn:hover {
+  background: #e86942;
+}
+.add-room-btn {
+  display: block;
+  width: 100%;
+  background: #fff;
+  border: 2px solid #d0d7e6;
+  color: #222;
+  font-weight: bold;
+  padding: 1.1rem 0;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  margin: 1.5rem 0 0.7rem 0;
+  cursor: pointer;
+  transition: border-color .2s, background .2s;
+}
+.add-room-btn:hover {
+  border-color: #2787e2;
+  background: #f5f9fd;
+}
+.room-tags-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.1rem;
+  margin: 1.2rem 0 0 0;
+}
+.room-tag {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.4rem 2.2rem 1.4rem 1.2rem;
+  font-weight: bold;
+  color: #2787e2;
+  font-size: 1.1rem;
+  position: relative;
+  transition: box-shadow .2s;
+  box-shadow: 0 2px 6px rgba(39,135,226,0.09);
+}
+.room-tag .remove-tag {
+  position: absolute;
+  top: 8px; right: 8px;
+  background: transparent;
+  border: none;
+  font-size: 1.3rem;
+  color: #b3b3b3;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .room-tags-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.step4-img {
+  display: block;
+  max-width: 100%;
+  margin: 1.2rem auto 0 auto;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+/* Step 5: Configuration System Cards */
+.config-system-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem;
+  margin: 1.2rem 0 0 0;
+}
+@media (max-width: 700px) {
+  .config-system-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.config-system-card {
+  display: flex;
+  align-items: center;
+  background: #22aaff;
+  color: #fff;
+  border-radius: 12px;
+  min-height: 100px;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  transition: box-shadow .2s;
+}
+.config-system-card.selected {
+  background: #ffe01b;
+  color: #222;
+}
+.config-system-image {
+  width: 90px;
+  height: 90px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.config-system-image img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+.config-system-main {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 1.2rem;
+  min-width: 0;
+}
+.config-system-title {
+  font-weight: bold;
+  font-size: 1.09rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.config-system-actions {
+  margin-top: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+.configure-link {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 1rem;
+  transition: color .2s;
+}
+.config-system-card.selected .configure-link {
+  color: #2787e2;
+}
+.remove-link {
+  color: #fff;
+  opacity: 0.85;
+  text-decoration: underline;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color .2s;
+}
+.config-system-card.selected .remove-link {
+  color: #2787e2;
+}
+.config-system-arrow {
+  font-size: 2rem;
+  margin: 0 22px;
+  color: #fff;
+  flex-shrink: 0;
+}
+.config-system-card.selected .config-system-arrow {
+  color: #2787e2;
+}
