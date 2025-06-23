@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Arial, sans-serif;
   margin: 2em;
   background: #f8f8fa;
   color: #232323;
@@ -28,8 +28,25 @@ legend {
 
 label {
   display: block;
-  margin: 0.2em 0 0.2em 1em;
+  margin: 0.35em 0 0.35em 0.5em;
   font-size: 1em;
+}
+
+input[type="text"], input[type="email"], input[type="tel"] {
+  display: block;
+  width: 95%;
+  margin-top: 0.2em;
+  padding: 0.4em 0.7em;
+  font-size: 1em;
+  border: 1px solid #b0b0b0;
+  border-radius: 4px;
+  background: #f9f9f9;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus {
+  border-color: #2a3e5c;
+  outline: none;
+  background: #eef2f8;
 }
 
 .area-fieldset { display: none; }
@@ -44,6 +61,7 @@ button[type="submit"] {
   border-radius: 5px;
   cursor: pointer;
   margin-left: 0.5em;
+  margin-bottom: 2em;
 }
 
 button[type="submit"]:hover {
@@ -58,6 +76,7 @@ button[type="submit"]:hover {
   border-radius: 5px;
   padding: 0.4em 1em;
   cursor: pointer;
+  margin-left: 0.5em;
 }
 
 #add-standard-room-btn:hover {
@@ -86,4 +105,14 @@ button[type="submit"]:hover {
   border-radius: 8px;
   border: 1.5px solid #b0d9c9;
   font-size: 1.1em;
+}
+
+.client-info input {
+  max-width: 350px;
+}
+
+@media (max-width: 600px) {
+  body { margin: 1em; }
+  fieldset { padding: 1em 0.5em; }
+  .client-info input { max-width: 98%; }
 }
