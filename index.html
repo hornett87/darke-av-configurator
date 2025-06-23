@@ -2,43 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Darke AV Configurator</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Room/Area Feature Selection</title>
+  <style>
+    .specialty-options { margin: 1em 0; padding: 1em; background: #f8f8f8; border-radius: 6px; }
+    .standard-room-options { margin: 1em 0; padding: 1em; background: #eef6ff; border-radius: 6px;}
+    fieldset { margin-bottom: 2em; }
+    legend { font-size: 1.2em; font-weight: bold; }
+    .room-area-block { margin-bottom: 2em; border: 1px solid #ccc; border-radius: 8px; }
+    label { margin-right: 1em; margin-bottom: .5em; display: inline-block; }
+    .specialty-toggles label { font-weight: normal; }
+  </style>
 </head>
 <body>
-  <header>
-    <img src="darke-av-logo.png" alt="Darke AV Logo" style="max-width:200px; margin-bottom:1em;">
-    <h1>Darke AV Configurator</h1>
-    <p style="color:#3a3a3a;">Please fill in your details and add all required rooms/areas. Each room/area can have any combination of specialty features.</p>
-  </header>
-
-  <form id="smart-home-options">
-    <fieldset class="client-info">
-      <legend>Your Information</legend>
-      <label>
-        Name:
-        <input type="text" name="client_name" required>
-      </label>
-      <label>
-        Email:
-        <input type="email" name="client_email" required>
-      </label>
-      <label>
-        Phone:
-        <input type="tel" name="client_phone">
-      </label>
-      <label>
-        Project Address:
-        <input type="text" name="client_address">
-      </label>
-    </fieldset>
-
-    <button type="button" id="add-room-btn" style="margin-bottom:1em;">+ Add Room/Area</button>
+  <h1>Room/Area Feature Selection</h1>
+  <form id="feature-form">
     <div id="room-area-blocks"></div>
-
-    <button type="submit" style="margin-top:2em; font-size:1.2em;">Submit</button>
+    <button type="button" id="add-room-btn">Add Room/Area</button>
+    <br><br>
+    <button type="submit">Submit</button>
   </form>
-  <div id="results"></div>
   <script src="form.js"></script>
 </body>
 </html>
