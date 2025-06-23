@@ -1,18 +1,38 @@
 const cinemaHTML = `
 <fieldset>
   <legend>Cinema Room Options</legend>
+
+  <label><strong>Audio & Video:</strong></label>
   <label><input type="checkbox" name="cinema_audio[]" value="Dolby Atmos"> Dolby Atmos</label>
   <label><input type="checkbox" name="cinema_audio[]" value="Surround Sound"> Surround Sound</label>
   <label><input type="checkbox" name="cinema_audio[]" value="Acoustic Treatment"> Acoustic Treatment</label>
   <label><input type="checkbox" name="cinema_audio[]" value="Soundproofing"> Soundproofing</label>
+
   <label><input type="checkbox" name="cinema_audio[]" value="4K Projector"> 4K Projector</label>
+  <label><input type="checkbox" name="cinema_audio[]" value="8K Projector"> 8K Projector</label>
   <label><input type="checkbox" name="cinema_audio[]" value="Motorised Screen"> Motorised Screen</label>
+  <label><input type="checkbox" name="cinema_audio[]" value="Fixed Frame Screen"> Fixed Frame Screen</label>
+  <label><input type="checkbox" name="cinema_audio[]" value="Ultra Short Throw Projector"> Ultra Short Throw Projector</label>
+  <label><input type="checkbox" name="cinema_audio[]" value="MicroLED Display"> MicroLED Display</label>
+
+  <label><strong>Seating & Decor:</strong></label>
   <label><input type="checkbox" name="cinema_audio[]" value="Cinema Seating"> Cinema Seating</label>
   <label><input type="checkbox" name="cinema_audio[]" value="Star Ceiling"> Star Ceiling</label>
+  <label><input type="checkbox" name="cinema_audio[]" value="LED Step Lighting"> LED Step Lighting</label>
+  <label><input type="checkbox" name="cinema_audio[]" value="Acoustic Panels"> Acoustic Panels</label>
+
+  <label><strong>Lighting & Control:</strong></label>
   <label><input type="checkbox" name="cinema_audio[]" value="Lighting Control"> Lighting Control</label>
   <label><input type="checkbox" name="cinema_audio[]" value="Control System"> Control System</label>
-  <label><input type="checkbox" name="cinema_audio[]" value="Video Sources"> Video Sources</label>
-  <label><input type="checkbox" name="cinema_audio[]" value="Streaming Services"> Streaming Services</label>
+  <label><input type="checkbox" name="cinema_audio[]" value="Touch Screen Control"> Touch Screen Control</label>
+  <label><input type="checkbox" name="cinema_audio[]" value="Handheld Remote"> Handheld Remote</label>
+  <label><input type="checkbox" name="cinema_audio[]" value="Voice Control"> Voice Control</label>
+
+  <label><strong>Video Sources:</strong></label>
+  <label><input type="checkbox" name="cinema_audio[]" value="Sky"> Sky</label>
+  <label><input type="checkbox" name="cinema_audio[]" value="Apple TV"> Apple TV</label>
+  <label><input type="checkbox" name="cinema_audio[]" value="Amazon Fire TV"> Amazon Fire TV</label>
+  <label><input type="checkbox" name="cinema_audio[]" value="Streaming Services"> Streaming Services (Netflix, Disney+, etc)</label>
   <label><input type="checkbox" name="cinema_audio[]" value="Games Console"> Games Console</label>
   <label><input type="checkbox" name="cinema_audio[]" value="Disc Player (BluRay, DVD)"> Disc Player (BluRay, DVD)</label>
   <label><input type="checkbox" name="cinema_audio[]" value="Kaleidescape"> Kaleidescape</label>
@@ -22,40 +42,91 @@ const cinemaHTML = `
 const poolHTML = `
 <fieldset>
   <legend>Pool Options</legend>
+
+  <label><strong>Audio & Visual:</strong></label>
   <label><input type="checkbox" name="pool_audio[]" value="Pool Speakers"> Pool Speakers</label>
   <label><input type="checkbox" name="pool_audio[]" value="Underwater Audio"> Underwater Audio</label>
-  <label><input type="checkbox" name="pool_audio[]" value="Lighting Control"> Lighting Control</label>
-  <label><input type="checkbox" name="pool_audio[]" value="Outdoor TV"> Outdoor TV</label>
-  <label><input type="checkbox" name="pool_audio[]" value="Control System"> Control System</label>
-  <label><input type="checkbox" name="pool_audio[]" value="Heating Control"> Heating Control</label>
   <label><input type="checkbox" name="pool_audio[]" value="Garden Speakers"> Garden Speakers</label>
-  <label><input type="checkbox" name="pool_audio[]" value="WiFi"> WiFi</label>
+  <label><input type="checkbox" name="pool_audio[]" value="Portable Speakers"> Portable Speakers</label>
+  <label><input type="checkbox" name="pool_audio[]" value="Outdoor TV"> Outdoor TV</label>
+  <label><input type="checkbox" name="pool_audio[]" value="Projector Screen"> Outdoor Projector/Screen</label>
+
+  <label><strong>Lighting & Ambiance:</strong></label>
+  <label><input type="checkbox" name="pool_audio[]" value="Lighting Control"> Lighting Control</label>
+  <label><input type="checkbox" name="pool_audio[]" value="Color Changing LEDs"> Color Changing LEDs</label>
+  <label><input type="checkbox" name="pool_audio[]" value="Fibre Optic Lighting"> Fibre Optic Lighting</label>
+
+  <label><strong>Control/Integration:</strong></label>
+  <label><input type="checkbox" name="pool_audio[]" value="Control System"> Control System</label>
+  <label><input type="checkbox" name="pool_audio[]" value="Touch Screen"> Touch Screen</label>
+  <label><input type="checkbox" name="pool_audio[]" value="Waterproof Remote"> Waterproof Remote</label>
+  <label><input type="checkbox" name="pool_audio[]" value="Voice Control"> Voice Control</label>
+
+  <label><strong>Environment & Safety:</strong></label>
+  <label><input type="checkbox" name="pool_audio[]" value="Heating Control"> Heating Control</label>
   <label><input type="checkbox" name="pool_audio[]" value="Automated Pool Cover"> Automated Pool Cover</label>
+  <label><input type="checkbox" name="pool_audio[]" value="Climate Control"> Climate Control</label>
+  <label><input type="checkbox" name="pool_audio[]" value="Security Cameras"> Security Cameras</label>
+  <label><input type="checkbox" name="pool_audio[]" value="Gate Intercom"> Gate Intercom</label>
 </fieldset>
 `;
 
 const gymHTML = `
 <fieldset>
   <legend>Gym Options</legend>
+
+  <label><strong>Audio & Visual:</strong></label>
   <label><input type="checkbox" name="gym_audio[]" value="Gym Speakers"> Gym Speakers</label>
+  <label><input type="checkbox" name="gym_audio[]" value="Subwoofer"> Subwoofer</label>
   <label><input type="checkbox" name="gym_audio[]" value="Wall TV"> Wall TV</label>
-  <label><input type="checkbox" name="gym_audio[]" value="Lighting Control"> Lighting Control</label>
-  <label><input type="checkbox" name="gym_audio[]" value="Control System"> Control System</label>
+  <label><input type="checkbox" name="gym_audio[]" value="Video Wall"> Video Wall</label>
   <label><input type="checkbox" name="gym_audio[]" value="Streaming Audio"> Streaming Audio</label>
   <label><input type="checkbox" name="gym_audio[]" value="Bluetooth Input"> Bluetooth Input</label>
-  <label><input type="checkbox" name="gym_audio[]" value="Video Conferencing"> Video Conferencing</label>
+  <label><input type="checkbox" name="gym_audio[]" value="Games Console"> Games Console</label>
+
+  <label><strong>Lighting & Ambiance:</strong></label>
+  <label><input type="checkbox" name="gym_audio[]" value="Lighting Control"> Lighting Control</label>
+  <label><input type="checkbox" name="gym_audio[]" value="Color Changing LEDs"> Color Changing LEDs</label>
+  <label><input type="checkbox" name="gym_audio[]" value="Window Tint Control"> Window Tint Control</label>
+
+  <label><strong>Control/Integration:</strong></label>
+  <label><input type="checkbox" name="gym_audio[]" value="Control System"> Control System</label>
+  <label><input type="checkbox" name="gym_audio[]" value="Touch Screen"> Touch Screen</label>
+  <label><input type="checkbox" name="gym_audio[]" value="Voice Control"> Voice Control</label>
+  <label><input type="checkbox" name="gym_audio[]" value="Handheld Remote"> Handheld Remote</label>
+
+  <label><strong>Environment:</strong></label>
   <label><input type="checkbox" name="gym_audio[]" value="Climate Control"> Climate Control</label>
+  <label><input type="checkbox" name="gym_audio[]" value="Security Cameras"> Security Cameras</label>
 </fieldset>
 `;
 
 const externalHTML = `
 <fieldset>
   <legend>External Area Options</legend>
+
+  <label><strong>Audio & Visual:</strong></label>
   <label><input type="checkbox" name="external_audio[]" value="Garden Speakers"> Garden Speakers</label>
-  <label><input type="checkbox" name="external_audio[]" value="Lighting Control"> Lighting Control</label>
-  <label><input type="checkbox" name="external_audio[]" value="Outdoor WiFi"> Outdoor WiFi</label>
+  <label><input type="checkbox" name="external_audio[]" value="Patio Speakers"> Patio Speakers</label>
+  <label><input type="checkbox" name="external_audio[]" value="Portable Speakers"> Portable Speakers</label>
   <label><input type="checkbox" name="external_audio[]" value="Outdoor TV"> Outdoor TV</label>
+  <label><input type="checkbox" name="external_audio[]" value="Outdoor Projector"> Outdoor Projector</label>
+
+  <label><strong>Lighting & Ambiance:</strong></label>
+  <label><input type="checkbox" name="external_audio[]" value="Lighting Control"> Lighting Control</label>
+  <label><input type="checkbox" name="external_audio[]" value="Color Changing LEDs"> Color Changing LEDs</label>
+  <label><input type="checkbox" name="external_audio[]" value="Fibre Optic Lighting"> Fibre Optic Lighting</label>
+  <label><input type="checkbox" name="external_audio[]" value="Landscape Lighting"> Landscape Lighting</label>
+
+  <label><strong>Control/Integration:</strong></label>
   <label><input type="checkbox" name="external_audio[]" value="Control System"> Control System</label>
+  <label><input type="checkbox" name="external_audio[]" value="Touch Screen"> Touch Screen</label>
+  <label><input type="checkbox" name="external_audio[]" value="Voice Control"> Voice Control</label>
+  <label><input type="checkbox" name="external_audio[]" value="Waterproof Remote"> Waterproof Remote</label>
+
+  <label><strong>Environment & Safety:</strong></label>
+  <label><input type="checkbox" name="external_audio[]" value="Outdoor WiFi"> Outdoor WiFi</label>
+  <label><input type="checkbox" name="external_audio[]" value="Heating Control"> Heating Control</label>
   <label><input type="checkbox" name="external_audio[]" value="Gate Intercom"> Gate Intercom</label>
   <label><input type="checkbox" name="external_audio[]" value="Security Cameras"> Security Cameras</label>
   <label><input type="checkbox" name="external_audio[]" value="Automated Gates"> Automated Gates</label>
@@ -63,6 +134,7 @@ const externalHTML = `
 </fieldset>
 `;
 
+// Standard Room block as before (unchanged)
 const standardRoomHTML = (idx = 1) => `
 <div class="standard-room-block">
   <fieldset>
@@ -71,7 +143,6 @@ const standardRoomHTML = (idx = 1) => `
       Room Name/Type:
       <input type="text" name="room_name[]" placeholder="e.g. Living Room, Bedroom 1, Kitchen" required>
     </label>
-
     <label><strong>Audio:</strong></label>
     <label><input type="checkbox" name="standard_audio_${idx}[]" value="Multi-Room Audio"> Multi-Room Audio</label>
     <label><input type="checkbox" name="standard_audio_${idx}[]" value="Standalone"> Standalone</label>
