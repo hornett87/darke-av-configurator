@@ -2,68 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Smart Home Configuration | Darke AV Limited</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <title>Smart Home Options Form</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2em; }
+    fieldset { margin-bottom: 2em; padding: 1em; }
+    legend { font-weight: bold; }
+    label { display: block; margin: 0.2em 0 0.2em 1em; }
+    button { font-size: 1.2em; padding: 0.5em 1.5em; }
+  </style>
 </head>
 <body>
-  <div class="form-container">
-    <img src="darke-av-logo.png" alt="Darke AV Limited" class="logo">
-    <h1>Smart Home Configuration</h1>
-    <p class="subtitle">Fill out this form so we can create the perfect smart home solution for you.</p>
-    <form id="configForm" autocomplete="off">
-      <label>
-        Name:
-        <input type="text" name="name" required placeholder="Your Name">
-      </label>
-      <label>
-        Email:
-        <input type="email" name="email" required placeholder="you@email.com">
-      </label>
-      <label>
-        Phone:
-        <input type="tel" name="phone" placeholder="(optional)">
-      </label>
+  <h1>Smart Home Options</h1>
+  <form id="smart-home-options">
 
-      <fieldset>
-        <legend>Which rooms would you like to automate?</legend>
-        <label><input type="checkbox" name="rooms" value="Living Room"> Living Room</label>
-        <label><input type="checkbox" name="rooms" value="Kitchen"> Kitchen</label>
-        <label><input type="checkbox" name="rooms" value="Bedroom"> Bedroom</label>
-        <label><input type="checkbox" name="rooms" value="Bathroom"> Bathroom</label>
-        <label><input type="checkbox" name="rooms" value="Home Office"> Home Office</label>
-        <label><input type="checkbox" name="rooms" value="Other"> Other (please specify below)</label>
-      </fieldset>
+    <!-- Include all the fieldsets for Cinema Room, Pool, Gym, External Area, and Standard Rooms here -->
+    <!-- ... Copy the full code from the previous message here ... -->
+    <!-- (For brevity, only the Cinema Room example is included below. Paste all fieldsets as needed.) -->
 
-      <label>
-        What smart systems are you interested in?
-        <select name="devices" multiple size="5">
-          <option value="Lighting">Lighting</option>
-          <option value="Heating/Cooling">Heating/Cooling</option>
-          <option value="Security/CCTV">Security / CCTV</option>
-          <option value="Audio/Video">Audio / Video</option>
-          <option value="Networking">Networking</option>
-          <option value="Blinds/Shades">Blinds / Shades</option>
-          <option value="Access Control">Access Control</option>
-        </select>
-        <span class="help-text">Hold Ctrl (Windows) or Command (Mac) to select multiple options.</span>
-      </label>
+    <fieldset>
+      <legend>Cinema Room</legend>
+      <label><strong>Acoustic Treatment:</strong></label>
+      <label><input type="checkbox" name="cinema_acoustic" value="Essential Panels"> Essential Panels</label>
+      <label><input type="checkbox" name="cinema_acoustic" value="Full Wall Treatment"> Full Wall Treatment</label>
+      <label><input type="checkbox" name="cinema_acoustic" value="Diffusion Panels"> Diffusion Panels</label>
+      <label><input type="checkbox" name="cinema_acoustic" value="Basic Soundproofing – door seals and carpet underlay"> Basic Soundproofing – door seals and carpet underlay</label>
+      <label><input type="checkbox" name="cinema_acoustic" value="Advanced Isolation – upgraded isolation for walls, floor, and door"> Advanced Isolation – upgraded isolation for walls, floor, and door</label>
+      <!-- ... (continue with the rest of the fieldsets as provided earlier) ... -->
+    </fieldset>
 
-      <label>
-        Automation preferences or routines:<br>
-        <textarea name="automation" rows="3" placeholder="E.g., wake up routines, security triggers, energy-saving..."></textarea>
-      </label>
+    <!-- Repeat with Pool, Gym, External Area, and Standard Room fieldsets -->
 
-      <label>
-        Other rooms, requirements, or comments:<br>
-        <textarea name="comments" rows="3" placeholder="Let us know anything else you need!"></textarea>
-      </label>
-
-      <button type="submit">Send Configuration</button>
-      <div id="status"></div>
-    </form>
-  </div>
-  <script src="form.js"></script>
+    <button type="submit">Submit</button>
+  </form>
 </body>
 </html>
